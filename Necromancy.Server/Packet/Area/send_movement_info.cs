@@ -40,7 +40,7 @@ namespace Necromancy.Server.Packet.Area
                 byte d = packet.Data.ReadByte();
 
                 byte e = packet.Data.ReadByte();
-                byte e1 = packet.Data.ReadByte();
+                byte e1 = packet.Data.ReadByte(); // direction char is moving based from the view of camera? if that makes sense
 
                 byte f = packet.Data.ReadByte(); // also some sort of direction modified var
 
@@ -118,12 +118,22 @@ namespace Necromancy.Server.Packet.Area
                         }
                     }
                 }
-                
+                //int zz = (e1*-1)+e1;
+                //byte zzz = (byte)zz;
                 if (client.Character.weaponEquipped == false)
                 {
-                    client.Character.wepEastWestAnim = 0;
-                    client.Character.wepNorthSouthAnim = 0;
+                    client.Character.wepEastWestAnim = f;
+                    client.Character.wepNorthSouthAnim = e1;
                 }
+
+                /*
+                if (client.Character.weaponEquipped == true)
+                {
+                    client.Character.wepEastWestAnim = f;
+                    client.Character.wepNorthSouthAnim = e1;
+                }
+                */
+
                 // how to sideways walk ^ 127-127 is character left // 128-128 is character right
                 {
                     // for (byte xd = 0; xd < 255; xd++)
