@@ -35,20 +35,17 @@ namespace Necromancy.Server.Packet.Area
                 byte b = packet.Data.ReadByte();
                 byte b1 = packet.Data.ReadByte();
 
-                byte c = packet.Data.ReadByte();
+                byte c = packet.Data.ReadByte(); // some sort of direction modified var
 
                 byte d = packet.Data.ReadByte();
 
                 byte e = packet.Data.ReadByte();
                 byte e1 = packet.Data.ReadByte();
 
-                byte f = packet.Data.ReadByte();
+                byte f = packet.Data.ReadByte(); // also some sort of direction modified var
 
-                byte g1 = packet.Data.ReadByte();
-                byte g2 = packet.Data.ReadByte();
-                byte g3 = packet.Data.ReadByte();
-                byte g4 = packet.Data.ReadByte();
-
+                int Incline = packet.Data.ReadInt32();
+                
                 byte h = packet.Data.ReadByte();
 
                 byte i = packet.Data.ReadByte();
@@ -127,7 +124,7 @@ namespace Necromancy.Server.Packet.Area
                     client.Character.wepEastWestAnim = 0;
                     client.Character.wepNorthSouthAnim = 0;
                 }
-
+                // how to sideways walk ^ 127-127 is character left // 128-128 is character right
                 {
                     // for (byte xd = 0; xd < 255; xd++)
                     {
@@ -141,11 +138,11 @@ namespace Necromancy.Server.Packet.Area
 
                         res2.WriteByte(client.Character.wepEastWestAnim); //HANDLES EAST AND WEST ANIMS WITH WEAPONS
                         res2.WriteByte(client.Character.wepNorthSouthAnim);// // HANDLES NORTH AND SOUTH ANIMS WITH WEAPONS
-                        res2.WriteByte(0);
+                        res2.WriteByte(255); // I DUNNO BUT IT WORKS
 
-                        res2.WriteInt16(0);
+                        res2.WriteInt16(0xFFFF); //FIXES MOVEMENT LAG
 
-                        res2.WriteByte(0);
+                        res2.WriteByte(0);// DONT TOUCH >.> CAUSES VISUAL TELEPORTING
                         res2.WriteByte(client.Character.movementAnim); //MOVEMENT ANIM
                         res2.WriteByte(client.Character.animJumpFall);//JUMP & FALLING ANIM
 
@@ -177,3 +174,36 @@ namespace Necromancy.Server.Packet.Area
         }
     }
 }
+
+/*
+  SAMPLE -  [REMOVED CORDS, AND THE LAST 7 BYTES AS THEY DID NOT CHANGE OVER MY TEST DATA]
+
+-a -b -b1-c -d -e -e1-f -[incline]-h -i -j -    Varibles to position of packet
+
+-AE-4A-A3-BD-5A-2F-7F-BF-[incline]-86-01-75-
+-76-51-A3-BD-49-2F-7F-BF-[incline]-61-F8-06-	Running Sideways
+-53-C9-A2-BD-A4-30-7F-BF-[incline]-C6-0A-B1-
+
+-0C-4D-67-BD-6D-97-7F-3F-[incline]-88-A1-91-
+-F0-92-5D-BE-63-EF-79-3F-[incline]-87-00-E1-	Forward running
+-7D-8A-5D-BE-DB-EF-79-3F-[incline]-6B-00-E1-
+-F0-92-5D-BE-63-EF-79-3F-[incline]-87-00-E1-
+                                                running in said directions below
+-8C-93-7D-3F-7C-92-0C-BE-[incline]-D9-C2-F0-  e
+
+-94-E6-90-3D-C2-5B-7F-BF-[incline]-E3-EB-C0-  s 
+
+-04-F8-7F-BF-B4-BD-7F-BC-[incline]-E6-DE-C4-  w
+
+-4A-D1-1F-BE-E6-DC-7C-3F-[incline]-32-E7-CB-  n
+
+-07-97-EF-3E-CA-3D-62-3F-[incline]-37-DB-B2-  ne
+
+-CE-E1-51-3F-56-94-12-BF-[incline]-16-65-20-  se
+
+-53-6A-35-BF-59-9F-34-BF-[incline]-14-8B-CE-  sw
+
+-6E-D9-28-BF-D1-6B-40-3F-[incline]-17-6C-BB-  nw
+
+
+*/
