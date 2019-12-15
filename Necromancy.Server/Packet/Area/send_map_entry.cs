@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_map_entry : Handler
+    public class send_map_entry : ClientHandler
     {
         public send_map_entry(NecServer server) : base(server)
         {
@@ -16,13 +16,11 @@ namespace Necromancy.Server.Packet.Area
         public override void Handle(NecClient client, NecPacket packet)
         {
             int mapId = packet.Data.ReadInt32();
-
-
-            Map map = Server.MapLookup.Get(mapId);
+            Map map = Server.Maps.Get(mapId);
             if (map == null)
             {
                 Logger.Error($"MapId: {mapId} not found in map lookup", client);
-                client.Socket.Close();
+                client.Close();
                 return;
             }
 
@@ -30,7 +28,7 @@ namespace Necromancy.Server.Packet.Area
 
             IBuffer res = BufferProvider.Provide();
             res.WriteInt32(0);
-            Router.Send(client, (ushort) AreaPacketId.recv_map_entry_r, res);
+            Router.Send(client, (ushort) AreaPacketId.recv_map_entry_r, res, ServerType.Area);
         }
     }
 }

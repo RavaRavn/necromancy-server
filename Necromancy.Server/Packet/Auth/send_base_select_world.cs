@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Auth
 {
-    public class send_base_select_world : Handler
+    public class send_base_select_world : ClientHandler
     {
         public send_base_select_world(NecServer server) : base(server)
         {
@@ -24,7 +24,7 @@ namespace Necromancy.Server.Packet.Auth
             res.WriteInt32(0);
             res.WriteCString("127.0.0.1"); //Message Server IP
             res.WriteInt32(60001); //Message Server Port
-            Router.Send(client, (ushort) AuthPacketId.recv_base_select_world_r, res);
+            Router.Send(client, (ushort) AuthPacketId.recv_base_select_world_r, res, ServerType.Auth);
         }
     }
 }

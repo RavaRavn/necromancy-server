@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_system_register_error_report : Handler
+    public class send_system_register_error_report : ClientHandler
     {
         public send_system_register_error_report(NecServer server) : base(server)
         {
@@ -18,9 +18,9 @@ namespace Necromancy.Server.Packet.Msg
         public override void Handle(NecClient client, NecPacket packet)
         {
             IBuffer res = BufferProvider.Provide();
-           
-
-            Router.Send(client, (ushort) MsgPacketId.recv_base_login_r, res);
+            
+            res.WriteInt32(0);
+            Router.Send(client, (ushort) MsgPacketId.recv_system_register_error_report_r, res, ServerType.Msg);
         }
     }
 }

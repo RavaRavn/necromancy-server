@@ -2,9 +2,9 @@ namespace Necromancy.Server.Logging
 {
     public enum NecLogType
     {
-        In = 1,
-        Out = 2,
-        Unhandled = 3,
+        PacketIn = 1,
+        PacketOut = 2,
+        PacketUnhandled = 3,
         PacketError = 4
     }
 }

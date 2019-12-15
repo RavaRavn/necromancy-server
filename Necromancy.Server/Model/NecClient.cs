@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Arrowgene.Services.Logging;
-using Arrowgene.Services.Networking.Tcp;
 using Necromancy.Server.Logging;
 using Necromancy.Server.Packet;
 
@@ -13,58 +11,70 @@ namespace Necromancy.Server.Model
     {
         private readonly NecLogger _logger;
 
-        public NecClient(ITcpSocket clientSocket, PacketFactory packetFactory)
+        public NecClient()
         {
             _logger = LogProvider.Logger<NecLogger>(this);
-            PacketFactory = packetFactory;
-            Socket = clientSocket;
-            UpdateIdentity();
+            Creation = DateTime.Now;
+            Identity = "";
         }
 
+        public DateTime Creation { get; }
+        public string Identity { get; private set; }
         public Account Account { get; set; }
+        public Soul Soul { get; set; }
         public Character Character { get; set; }
         public Channel Channel { get; set; }
         public Map Map { get; set; }
-        public string Identity { get; private set; }
-        public ITcpSocket Socket { get; }
-        public PacketFactory PacketFactory { get; }
-
-        public List<NecPacket> Receive(byte[] data)
-        {
-            List<NecPacket> packets;
-            try
-            {
-                packets = PacketFactory.Read(data, this);
-            }
-            catch (Exception ex)
-            {
-                _logger.Exception(this, ex);
-                packets = new List<NecPacket>();
-            }
-
-            return packets;
-        }
+        public NecConnection AuthConnection { get; set; }
+        public NecConnection MsgConnection { get; set; }
+        public NecConnection AreaConnection { get; set; }
 
         public void Send(NecPacket packet)
         {
-            byte[] data;
-            try
+            switch (packet.ServerType)
             {
-                data = PacketFactory.Write(packet, this);
+                case ServerType.Area:
+                    AreaConnection.Send(packet);
+                    break;
+                case ServerType.Msg:
+                    MsgConnection.Send(packet);
+                    break;
+                case ServerType.Auth:
+                    AuthConnection.Send(packet);
+                    break;
+                default:
+                    _logger.Error(this, "Invalid ServerType");
+                    break;
             }
-            catch (Exception ex)
-            {
-                _logger.Exception(this, ex);
-                return;
-            }
-
-            _logger.LogOutgoingPacket(this, packet);
-            Socket.Send(data);
         }
 
         public void UpdateIdentity()
         {
-            Identity = $"[{Socket.Identity}]";
+            Identity = "";
+
+            if (Character != null)
+            {
+                Identity += $"[Char:{Character.Id}:{Character.Name}]";
+                return;
+            }
+
+            if (Account != null)
+            {
+                Identity += $"[Acc:{Account.Id}:{Account.Name}]";
+                return;
+            }
+
+            if (AuthConnection != null)
+            {
+                Identity += $"[Con:{AuthConnection.Identity}]";
+            }
+        }
+
+        public void Close()
+        {
+            AuthConnection?.Socket.Close();
+            MsgConnection?.Socket.Close();
+            AreaConnection?.Socket.Close();
         }
     }
 }

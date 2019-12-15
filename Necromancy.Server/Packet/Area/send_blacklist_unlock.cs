@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_blacklist_unlock : Handler
+    public class send_blacklist_unlock : ClientHandler
     {
         public send_blacklist_unlock(NecServer server) : base(server)
         {
@@ -24,7 +24,7 @@ namespace Necromancy.Server.Packet.Area
 
 
 
-            Router.Send(client, (ushort)AreaPacketId.recv_blacklist_unlock_r, res);
+            Router.Send(client, (ushort)AreaPacketId.recv_blacklist_unlock_r, res, ServerType.Area);
         }
     }
 }

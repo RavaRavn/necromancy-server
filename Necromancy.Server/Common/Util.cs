@@ -4,7 +4,6 @@ using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Necromancy.Server.Common
 {
@@ -28,11 +27,12 @@ namespace Necromancy.Server.Common
         }
 
         public static string PathDifferenceEnd(string directoryInfo1, string directoryInfo2, bool unRoot)
-        {           
+        {
             return PathDifference(new DirectoryInfo(directoryInfo1), new DirectoryInfo(directoryInfo2), unRoot);
         }
 
-        public static string PathDifferenceEnd(FileSystemInfo directoryInfo1, FileSystemInfo directoryInfo2, bool unRoot)
+        public static string PathDifferenceEnd(FileSystemInfo directoryInfo1, FileSystemInfo directoryInfo2,
+            bool unRoot)
         {
             string result;
             if (directoryInfo1.FullName == directoryInfo2.FullName)
@@ -61,7 +61,7 @@ namespace Necromancy.Server.Common
 
             return result;
         }
-        
+
 
         public static string PathDifference(string directoryInfo1, string directoryInfo2, bool unRoot)
         {
@@ -302,7 +302,7 @@ namespace Necromancy.Server.Common
         /// </summary>
         public static string CommonDirectory()
         {
-            string location = typeof(Utils).GetTypeInfo().Assembly.Location;
+            string location = typeof(Util).GetTypeInfo().Assembly.Location;
             Uri uri = new Uri(location);
             string directory = Path.GetDirectoryName(uri.LocalPath);
             return directory;
@@ -494,7 +494,7 @@ namespace Necromancy.Server.Common
 
             return result;
         }
-        
+
         public static string ToHexString(byte[] data, char? seperator = null)
         {
             StringBuilder sb = new StringBuilder();
@@ -529,6 +529,122 @@ namespace Necromancy.Server.Common
             }
 
             return sb.ToString();
+        }
+
+        public static string[] ParseTextArguments(string line, char delimiter, char textQualifier)
+        {
+            IList<string> list = ParseTextList(line, delimiter, textQualifier);
+            int count = list.Count;
+            string[] arguments = new string[count];
+            for (int i = 0; i < count; i++)
+            {
+                arguments[i] = list[i];
+            }
+
+            return arguments;
+        }
+
+        public static IEnumerable<string> ParseTextEnumerable(string line, char delimiter, char textQualifier)
+        {
+            if (string.IsNullOrWhiteSpace(line))
+                yield break;
+
+            char prevChar = '\0';
+            char nextChar = '\0';
+            char currentChar = '\0';
+            bool inString = false;
+
+            StringBuilder token = new StringBuilder();
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                currentChar = line[i];
+
+                if (i > 0)
+                    prevChar = line[i - 1];
+                else
+                    prevChar = '\0';
+
+                if (i + 1 < line.Length)
+                    nextChar = line[i + 1];
+                else
+                    nextChar = '\0';
+
+                if (currentChar == textQualifier && (prevChar == '\0' || prevChar == delimiter) && !inString)
+                {
+                    inString = true;
+                    continue;
+                }
+
+                if (currentChar == textQualifier && (nextChar == '\0' || nextChar == delimiter) && inString)
+                {
+                    inString = false;
+                    continue;
+                }
+
+                if (currentChar == delimiter && !inString)
+                {
+                    yield return token.ToString();
+                    token = token.Remove(0, token.Length);
+                    continue;
+                }
+
+                token = token.Append(currentChar);
+                yield return token.ToString();
+            }
+        }
+
+        public static IList<string> ParseTextList(string line, char delimiter, char textQualifier)
+        {
+            IList<string> collection = new List<string>();
+            if (string.IsNullOrWhiteSpace(line))
+                return collection;
+
+            char prevChar = '\0';
+            char nextChar = '\0';
+            char currentChar = '\0';
+            bool inString = false;
+
+            StringBuilder token = new StringBuilder();
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                currentChar = line[i];
+
+                if (i > 0)
+                    prevChar = line[i - 1];
+                else
+                    prevChar = '\0';
+
+                if (i + 1 < line.Length)
+                    nextChar = line[i + 1];
+                else
+                    nextChar = '\0';
+
+                if (currentChar == textQualifier && (prevChar == '\0' || prevChar == delimiter) && !inString)
+                {
+                    inString = true;
+                    continue;
+                }
+
+                if (currentChar == textQualifier && (nextChar == '\0' || nextChar == delimiter) && inString)
+                {
+                    inString = false;
+                    continue;
+                }
+
+                if (currentChar == delimiter && !inString)
+                {
+                    collection.Add(token.ToString());
+                    token = token.Remove(0, token.Length);
+                    continue;
+                }
+
+                token = token.Append(currentChar);
+            }
+
+            collection.Add(token.ToString());
+            return collection;
         }
     }
 }

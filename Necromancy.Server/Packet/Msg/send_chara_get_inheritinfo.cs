@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_chara_get_inheritinfo : Handler
+    public class send_chara_get_inheritinfo : ClientHandler
     {
         public send_chara_get_inheritinfo(NecServer server) : base(server)
         {
@@ -20,7 +20,7 @@ namespace Necromancy.Server.Packet.Msg
             IBuffer res = BufferProvider.Provide();
            
 
-            Router.Send(client, (ushort) MsgPacketId.recv_base_login_r, res);
+            Router.Send(client, (ushort) MsgPacketId.recv_base_login_r, res, ServerType.Msg);
         }
     }
 }

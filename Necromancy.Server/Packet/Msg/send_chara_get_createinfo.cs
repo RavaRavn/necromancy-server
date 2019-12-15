@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_chara_get_createinfo : Handler
+    public class send_chara_get_createinfo : ClientHandler
     {
         public send_chara_get_createinfo(NecServer server) : base(server)
         {
@@ -16,47 +16,39 @@ namespace Necromancy.Server.Packet.Msg
         public override void Handle(NecClient client, NecPacket packet)
         {
             IBuffer res = BufferProvider.Provide();
-            res.WriteInt32(6);
-            for (int i = 0; i < 6; i++)
-            {
-                res.WriteByte((byte)i);//specifies colors A-F
-            }
 
-            // 4bytes (004E90F6) cmp, 8 -> ja
             byte entries = 6;
-            res.WriteByte(entries);//num of colors 6 being A-F
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            // 004E913F (jb loop)
-            for (int i = 0; i < entries; i++)
-            {
-                res.WriteByte((byte) i);//specifies colors A-F
-            }
 
-            // 4bytes (004E9174) cmp, 8 -> ja
-            entries = 6;
-            res.WriteByte(entries); //Specifies how many faces, 6 being A-F
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            // 004E91BF (jb loop)
-            for (int i = 0; i < entries; i++)
-            {
-                res.WriteByte((byte)i); //face data, starts at 0 = A
-            }
+            res.WriteInt32(6);//num of hairstyles 6 being A-F 
 
-            // 4bytes (004E91F4) cmp, 5 -> ja
+            res.WriteByte(0);//specifies hair A-F
+            res.WriteByte(1);//specifies hair A-F
+            res.WriteByte(2);//specifies hair A-F
+            res.WriteByte(3);//specifies hair A-F
+            res.WriteByte(4);//specifies hair A-F
+            res.WriteByte(0);//specifies hair A-F
+
+            res.WriteInt32(6);//num of colors 6 being A-F 
+
+            res.WriteByte(0);//specifies colors A-F
+            res.WriteByte(1);//specifies colors A-F
+            res.WriteByte(2);//specifies colors A-F
+            res.WriteByte(3);//specifies colors A-F
+            res.WriteByte(4);//specifies colors A-F
+            res.WriteByte(5);//specifies colors A-F
+
+
+            res.WriteInt32(6);//Specifies how many faces, 6 being A-F
+
+            res.WriteByte(0);//specifies face A-F
+            res.WriteByte(1);//specifies face A-F
+            res.WriteByte(2);//specifies face A-F
+            res.WriteByte(3);//specifies face A-F
+            res.WriteByte(4);//specifies face A-F
+            res.WriteByte(0);//specifies face A-F
+
             entries = 5;//Specifies how many stat groups 5 = (Human, Elf, Dwarf, Porkul, Gnome)
-            res.WriteByte(entries);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            // note: advance 5 * 0x20 | 5 * 32
-
-
-            // 4bytes 004E921C | E8 BF76FFFF | call wizardryonline_no_encryption.4E08E0 
-            //for (int i = 0; i < entries; i++)
+            res.WriteInt32(entries);
             {
                 wo_4E08E0_Human_Stats(res);//holds correct data for starting stats for Humans
                 wo_4E08E0_Elf_Stats(res);//holds correct data for starting stats for Elfs
@@ -65,22 +57,14 @@ namespace Necromancy.Server.Packet.Msg
                 wo_4E08E0_Gnome_Stats(res);//holds correct data for starting stats for Gnome
             }
 
-            // end  call wizardryonline_no_encryption.4E08E0 
-
-            // 4 byte cmp, 10 -> ja (0019F954) loop create class? | 004E92B3 loop read data?
             entries = 8;//num of entries for our group of models
-            res.WriteByte(entries); //50
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(entries); 
 
-            //for (int i = 0; i < entries; i++)
-            {
-                // 004E9297
-                wo_4E3700_Elf_Female(res);//Holds Female Elf model details
+            {  
                 wo_4E3700_Human_Male(res);//Holds Male Human model details
                 wo_4E3700_Human_Female(res);//Holds Female Human model details
                 wo_4E3700_Elf_Male(res);//Holds Male Elf model details
+                wo_4E3700_Elf_Female(res);//Holds Female Elf model details
                 wo_4E3700_Dwarf_Male(res);//Holds Male Dwarf model details
                 wo_4E3700_Gnome_Female(res);//Holds Female Gnome model details
                 wo_4E3700_Prokul_Male(res);//Holds Male Porkul model details
@@ -89,26 +73,23 @@ namespace Necromancy.Server.Packet.Msg
 
 
             //Read 4 byte (004E92E8) cmp,140(0x8C) -> JA (320)
-            entries = 2;
-            res.WriteByte(entries); // 0 = no elf , 1 = elf
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            for (int i = 0; i < entries; i++)
-            {
-                wo_4E37F0(res);
-            }
-
-            //4bytes cmp, E ( < 14) -> JA
-            entries = 4;
-            res.WriteByte(entries);//Specifies the number of Classes 4 being our max
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
+            entries = 32;
+            res.WriteInt32(entries);
             
-            //for (int i = 0; i < entries; i++)
+
+                wo_4E37F0_HumanMaleClassGear(res);
+                wo_4E37F0_HumanFemaleClassGear(res);
+                wo_4E37F0_ElfMaleClassGear(res);
+                wo_4E37F0_ElfFemaleClassGear(res);
+                wo_4E37F0_DwarfMaleClassGear(res);
+                wo_4E37F0_GnomeFemaleClassGear(res);
+                wo_4E37F0_PorkulMaleClassGear(res);
+                wo_4E37F0_PorkulFemaleClassGear(res);
+            
+
+            entries = 4;
+            res.WriteInt32(entries);//Specifies the number of Classes 4 being our max
+
             {
                 wo_4E0970_Fighter(res);//Holds Stats and info for Fighter Class(need to fix bonus HP+MP+Stats)
                 wo_4E0970_Priest(res);//Holds Stats and info for Priest Class(need to fix bonus HP+MP+Stats)
@@ -117,1750 +98,1586 @@ namespace Necromancy.Server.Packet.Msg
             }
 
 
-            Router.Send(client, (ushort) MsgPacketId.recv_chara_get_createinfo_r, res);
+            Router.Send(client, (ushort) MsgPacketId.recv_chara_get_createinfo_r, res, ServerType.Msg);
         }
 
-        private void wo_4E0970_Fighter(IBuffer res)
+        private void wo_4E08E0_Human_Stats(IBuffer res)
         {
-            //4bytes
-              res.WriteByte(0);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
-              res.WriteByte(0);
-              res.WriteByte(0);
-              res.WriteByte(0); 
-              
-              //1bytes
-              res.WriteByte(14); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
-              //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
+            res.WriteInt32(1);
+            res.WriteInt32(60);//HP
+            res.WriteInt32(20);//MP
+            res.WriteInt32(0);
 
-              // 2byte 7x loop
-              // 2 bytes
-              res.WriteByte(8);//STR Requirement
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(0);//VIT Requirement
-              res.WriteByte(0);
-
-              //2 byte
-              res.WriteByte(0); //40  //DEX Requirement
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(0);//AGI Requirement
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(0);//INT Requirement
-              res.WriteByte(0); //45
-
-              // 2 byte
-              res.WriteByte(0);//PIE Requirement
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(0); //48  //LUK Requirement
-              res.WriteByte(0);
-              //end loop
-              
-              
-              //4bytes
-              res.WriteByte(12);//Class Bonus HP
-              res.WriteByte(0);
-              res.WriteByte(0);
-              res.WriteByte(0); 
-              
-              //4bytes
-              res.WriteByte(12);//Class Bonus MP
-              res.WriteByte(0);
-              res.WriteByte(0);
-              res.WriteByte(0); 
-              
-              
-              // 2byte 7x loop
-              // 2 bytes
-              res.WriteByte(12);//Class Bonus STR
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(12);//Class Bonus VIT
-              res.WriteByte(0);
-
-              //2 byte
-              res.WriteByte(12); //40 //Class Bonus DEX
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(12);//Class Bonux AGI
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(12);//Class Bonus INT
-              res.WriteByte(0); //45
-
-              // 2 byte
-              res.WriteByte(12);//Class Bonus PIE
-              res.WriteByte(0);
-
-              // 2 byte
-              res.WriteByte(12); //48 //Class Bonus LUK
-              res.WriteByte(0);
-            //end loop
-            
-
-            //4bytes
-            res.WriteInt32(11101);
-            //res.WriteInt32(110001);// states what is in skill slot 0 (left most), 0 = nothing
-              
-              //4bytes
-              res.WriteInt32(11201);// states what is in skill slot 1 (middle), 0 = nothing              
-                            
-              //4bytes
-              res.WriteInt32(0);// states what is in skill slot 2 (right most), 0 = nothing              
-              
-              //1bytes
-              res.WriteByte(5);//bonus roll number store?
+            res.WriteInt16(8);//STR
+            res.WriteInt16(7);//VIT
+            res.WriteInt16(7);//DEX
+            res.WriteInt16(6);//AGI
+            res.WriteInt16(8);//INT
+            res.WriteInt16(5);//PIE
+            res.WriteInt16(8);//LUK
         }
 
-        private void wo_4E0970_Thief(IBuffer res)
+        private void wo_4E08E0_Elf_Stats(IBuffer res)
         {
-            //4bytes
-            res.WriteByte(1);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);
+            res.WriteInt32(50);//HP
+            res.WriteInt32(30);//MP
+            res.WriteInt32(0);
 
-            //1bytes
-            res.WriteByte(12); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
-                               //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(0);//STR Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//VIT Requirement
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(8); //40  //DEX Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//AGI Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//INT Requirement
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(0);//PIE Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0); //48  //LUK Requirement
-            res.WriteByte(0);
-            //end loop
-
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(12);//Class Bonus STR
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus VIT
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(12); //40 //Class Bonus DEX
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonux AGI
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus INT
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus PIE
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12); //48 //Class Bonus LUK
-            res.WriteByte(0);
-            //end loop
-
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(4);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //1bytes
-            res.WriteByte(2);
+            res.WriteInt16(6);//STR
+            res.WriteInt16(5);//VIT
+            res.WriteInt16(8);//DEX
+            res.WriteInt16(8);//AGI
+            res.WriteInt16(10);//INT
+            res.WriteInt16(8);//PIE
+            res.WriteInt16(4);//LUK
         }
 
-        private void wo_4E0970_Mage(IBuffer res)
+        private void wo_4E08E0_Dwarf_Stats(IBuffer res)
         {
-            //4bytes
-            res.WriteByte(2);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);
+            res.WriteInt32(80);//HP
+            res.WriteInt32(15);//MP
+            res.WriteInt32(0);
 
-            //1bytes
-            res.WriteByte(14); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
-                               //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(0);//STR Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//VIT Requirement
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(0); //40  //DEX Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//AGI Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(8);//INT Requirement
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(0);//PIE Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0); //48  //LUK Requirement
-            res.WriteByte(0);
-            //end loop
-
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(12);//Class Bonus STR
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus VIT
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(12); //40 //Class Bonus DEX
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonux AGI
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus INT
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus PIE
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12); //48 //Class Bonus LUK
-            res.WriteByte(0);
-            //end loop
-
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(4);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //1bytes
-            res.WriteByte(2);
+            res.WriteInt16(9);//STR
+            res.WriteInt16(8);//VIT
+            res.WriteInt16(8);//DEX
+            res.WriteInt16(4);//AGI
+            res.WriteInt16(5);//INT
+            res.WriteInt16(9);//PIE
+            res.WriteInt16(5);//LUK
         }
 
-        private void wo_4E0970_Priest(IBuffer res)
+        private void wo_4E08E0_Porkul_Stats(IBuffer res)
         {
-            //4bytes
-            res.WriteByte(3);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);
+            res.WriteInt32(50);//HP
+            res.WriteInt32(20);//MP
+            res.WriteInt32(0);
 
-            //1bytes
-            res.WriteByte(10); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
-                               //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(0);//STR Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//VIT Requirement
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(0); //40  //DEX Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//AGI Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0);//INT Requirement
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(8);//PIE Requirement
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(0); //48  //LUK Requirement
-            res.WriteByte(0);
-            //end loop
-
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(12);//Class Bonus MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            // 2byte 7x loop
-            // 2 bytes
-            res.WriteByte(12);//Class Bonus STR
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus VIT
-            res.WriteByte(0);
-
-            //2 byte
-            res.WriteByte(12); //40 //Class Bonus DEX
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonux AGI
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus INT
-            res.WriteByte(0); //45
-
-            // 2 byte
-            res.WriteByte(12);//Class Bonus PIE
-            res.WriteByte(0);
-
-            // 2 byte
-            res.WriteByte(12); //48 //Class Bonus LUK
-            res.WriteByte(0);
-            //end loop
-
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(4);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            //1bytes
-            res.WriteByte(2);
+            res.WriteInt16(5);//STR
+            res.WriteInt16(6);//VIT
+            res.WriteInt16(9);//DEX
+            res.WriteInt16(12);//AGI
+            res.WriteInt16(7);//INT
+            res.WriteInt16(7);//PIE
+            res.WriteInt16(15);//LUK
         }
 
-
-        private void wo_4E37F0(IBuffer res)
+        private void wo_4E08E0_Gnome_Stats(IBuffer res)
         {
-            //4bytes cmp,14 -> JA
-            res.WriteByte(0x14);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);
+            res.WriteInt32(70);//HP
+            res.WriteInt32(25);//MP
+            res.WriteInt32(0);
 
-            //4bytes
-            res.WriteByte(3);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes
-            res.WriteByte(4);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-
-            for (int i = 0; i < 19; i++)
-            {
-                //4bytes
-                res.WriteByte((byte)i);
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0);
-            }
-
-            for (int i = 0; i < 19; i++)
-            {
-                wo_4948C0(res);
-            }
-
-
-            for (int i = 0; i < 19; i++)
-            {
-                //4bytes
-                res.WriteByte(1);
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0);
-            }
-
-
-            // Read Byte
-            res.WriteByte(0);
+            res.WriteInt16(7);//STR
+            res.WriteInt16(7);//VIT
+            res.WriteInt16(4);//DEX
+            res.WriteInt16(7);//AGI
+            res.WriteInt16(6);//INT
+            res.WriteInt16(10);//PIE
+            res.WriteInt16(6);//LUK
         }
-
-        private void wo_4948C0(IBuffer res)
-        {
-            // loop 19x
-            // 004E3863 | E8 5810FBFF              | call wizardryonline_no_encryption.4948C0            |
-            // start loop 19x
-            // loop 2x
-            //4bytes
-            res.WriteByte(2);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //4bytes - 004948EE
-            res.WriteByte(1);
-            // Read Byte
-            res.WriteByte(1);
-            // Read Byte
-            res.WriteByte(1);
-
-            //4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            // Read Byte
-            res.WriteByte(1);
-            // Read Byte
-            res.WriteByte(0);
-            // Read Byte
-            res.WriteByte(0);
-            // end loop
-
-            // Read Byte
-            res.WriteByte(2);
-            // Read Byte
-            res.WriteByte(1);
-            // Read Byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-            // Read Byte
-            res.WriteByte(2);
-            // Read Byte
-            res.WriteByte(3);
-            // Read Byte
-            res.WriteByte(4);
-            // Read Byte
-            res.WriteByte(5);
-            // Read Byte
-            res.WriteByte(6);
-            // end     
-        }
-
 
         private void wo_4E3700_Elf_Female(IBuffer res) //characater creation area?
         {
-            // 4 byte
-            res.WriteByte(1);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);//race ID
+            res.WriteInt32(1);//gender flag
 
-            //4bytes
-            res.WriteByte(1);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
+            res.WriteByte(1);//bool
 
 
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
             int x = 0;
-            int[] EquipId = new int[19];
-            
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
-
-                res.WriteInt32(00752401);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-                
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
+                res.WriteInt32(WeaponContainer[x]);
 
                 x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752401, 752401, 752401, 752401, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
         private void wo_4E3700_Human_Male(IBuffer res) //characater creation area?
         {
-            // 4 byte
-            res.WriteByte(0);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
 
-            //4bytes
-            res.WriteByte(0);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(0);//race ID
+            res.WriteInt32(0);//gender flag
 
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
+            res.WriteByte(1);//bool
 
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-            
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752101);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-                
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752101, 752101, 752101, 752101, 0 , 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SlotContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SlotContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
         private void wo_4E3700_Human_Female(IBuffer res) //characater creation area?
         {
             // 4 byte
-            res.WriteByte(0);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(0);//race ID
+            res.WriteInt32(1);//gender flag
 
-            //4bytes
-            res.WriteByte(1);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteByte(1);//bool
 
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-            
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752201);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752201, 752201, 752201, 752201, 0 , 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
         private void wo_4E3700_Elf_Male(IBuffer res) //characater creation area?
         {
             // 4 byte
-            res.WriteByte(1);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(1);//race ID
+            res.WriteInt32(0);//gender flag
 
-            //4bytes
-            res.WriteByte(0);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteByte(1);//bool
 
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752301);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752301, 752301, 752301, 752301, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
+
         }
 
         private void wo_4E3700_Dwarf_Male(IBuffer res) //characater creation area?
         {
             // 4 byte
-            res.WriteByte(2);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(2);//race ID
+            res.WriteInt32(0);//gender flag
 
-            //4bytes
-            res.WriteByte(0);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteByte(1);//bool
 
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752501);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752501, 752501, 752501, 752501, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
+
         private void wo_4E3700_Gnome_Female(IBuffer res) //characater creation area?
+
         {
             // 4 byte
-            res.WriteByte(4);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(4);//race ID
+            res.WriteInt32(1);//gender flag
 
-            //4bytes
-            res.WriteByte(1);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteByte(1);//bool
 
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00753001);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(3); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 753001, 753001, 753001, 753001, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
         private void wo_4E3700_Prokul_Male(IBuffer res) //characater creation area?
         {
             // 4 byte
-            res.WriteByte(3);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(3);//race ID
+            res.WriteInt32(0);//gender flag
 
-            //4bytes
-            res.WriteByte(0);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
+            res.WriteByte(1);//bool
 
 
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
-
-
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752701);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752701, 752701, 752701, 752701, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
         private void wo_4E3700_Porkul_Female(IBuffer res) //characater creation area?
         {
             // 4 byte
-            res.WriteByte(3);//race ID
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            res.WriteInt32(3);//race ID
+            res.WriteInt32(1);//gender flag
 
-            //4bytes
-            res.WriteByte(1);//gender flag
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
-
-            //1 byte cmp,1 -> sete (bool)
-            res.WriteByte(1);
-
-            //ItemType Select See str_table SubID 121 for Item Type info. Increment by +1
-            int Armor = 25;         //Armor 25
-            int Accessory = 27;     //Accessory 26
-            int Shield = 21;        //Shield 19-21
-            int Weapon = 14;         //0 Knuckle, 1 Dagger, 3 1hSword, 7 1h axe (broken), 8 2hAxe, 9 spear, 10 blunt, 13 staff, 15 crossbow
-                                     //sub_483660 
-            res.WriteInt32(Weapon); //18	    				
-            res.WriteInt32(Shield); //17 	    		
-            res.WriteInt32(Armor); //16	        			
-            res.WriteInt32(Armor); //15	        				
-            res.WriteInt32(Armor); //14	        			
-            res.WriteInt32(Armor); //13	        			
-            res.WriteInt32(Armor); //12	        				
-            res.WriteInt32(Accessory); //11	  	
-            res.WriteInt32(Accessory); //10	    			
-            res.WriteInt32(Accessory); //9	    		
-            res.WriteInt32(Accessory); //8	    			
-            res.WriteInt32(Accessory); //7	    			
-            res.WriteInt32(Armor); //6          				
-            res.WriteInt32(Armor); //5          		
-            res.WriteInt32(Armor); //4	        					
-            res.WriteInt32(Armor); //3	        				
-            res.WriteInt32(Armor); //2          				
-            res.WriteInt32(Shield + 1); //1       					
-            res.WriteInt32(22);  //0 
+            res.WriteByte(1);//bool
 
 
-            //int[] EquipId = new int[] {15200601,15200601/*Shield* */,20000101/*Quiver*/,100101,200101,300101,400101,500101,690101/*Cape*/
-            //,30102401,30200103,30300101,30400112,70000201/*talkring*/,160801,260801,360801,460801,10800405/*Weapon*/ };
-
-
-            //sub_483420
-            int numEntries = 19;
-
-
-            int[] EquipId = new int[19];
-
-
-            //sub_4948C0
-            for (int i = 0; i < numEntries; i++)
+            int[] WeaponContainer = new int[] { 14, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 22, 22 };
+            int x = 0;
+            int xx = 0;
+            int xxx = 0;
+            for (int i = 0; i < 19; i++)
             {
+                res.WriteInt32(WeaponContainer[x]);
 
-                res.WriteInt32(00752801);//???
-                res.WriteByte(0);
-                res.WriteByte(0);
-                res.WriteByte(0); //0  ????
-
-
-                res.WriteInt32(12341234);//???
-                res.WriteByte(0); //
-                res.WriteByte(4); //
-                res.WriteByte(1); //
-
-
-                res.WriteByte(00);// Hair style from  chara\00\041\000\model  45 = this file C:\WO\Chara\chara\00\041\000\model\CM_00_041_11_045.nif
-                res.WriteByte(00); //Face Style calls C:\Program Files (x86)\Steam\steamapps\common\Wizardry Online\data\chara\00\041\000\model\CM_00_041_10_010.nif.  must be 00 10, 20, 30, or 40 to work.
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(4); // testing
-                res.WriteByte(2); //Alternate texture for item model 
-                res.WriteByte(4); // seperate in assembly
-
-
+                x++;
             }
 
-            //sub_483420
-            numEntries = 19;//influences a loop that needs to be under 19
+            int[] EquipmentContainer = new int[] { 0, 0, 260103, 110504, 360103, 460103, 560103, 0, 0, 0, 0, 0, 752801, 752801, 752801, 752801, 0, 0, 0 };
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(EquipmentContainer[xx]);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                res.WriteInt32(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
-            int rr = 000;
-            //sub_483420   // 2 shield 4accessory? 8Helmet 12belt? 16torso 32 pants 48torsopants 64 hands 96handpants 128 feet 192handfeet 
-            res.WriteInt32(001); //Right Hand    //1 for weapon
-            res.WriteInt32(002); //Left Hand     //2 for Shield
-            res.WriteInt32(016); //Torso         //16 for torso
-            res.WriteInt32(008); //Head          //08 for head
-            res.WriteInt32(032); //Legs          //32 for legs
-            res.WriteInt32(064); //Arms          //64 for Arms
-            res.WriteInt32(128); //Feet          //128 for feet
-            res.WriteInt32(004); //???Cape
-            res.WriteInt32(rr); //???Ring
-            res.WriteInt32(rr); //???Earring
-            res.WriteInt32(rr); //???Necklace
-            res.WriteInt32(rr); //???Belt
-            res.WriteInt32(016); //Avatar Torso
-            res.WriteInt32(128); //Avatar Feet
-            res.WriteInt32(064); //Avatar Arms
-            res.WriteInt32(032); //Avatar Legs
-            res.WriteInt32(008); //Avatar Head  
-            res.WriteInt32(004); //???
-            res.WriteInt32(000); //Right Hand   
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);//bool
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
+                res.WriteByte(0);
 
+                xx++;
+            }
 
-            //Read 1 byte (004E37C7)
-            res.WriteByte(19);
+            int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+            for (int i = 0; i < 19; i++)
+            {
+                res.WriteInt32(SoltContainer[xxx]);
+
+                xxx++;
+            }
+
+            res.WriteByte(19); // how many items to display
         }
 
-        private void wo_4E08E0_Human_Stats(IBuffer res)
+        private void wo_4E37F0_HumanMaleClassGear(IBuffer res)
         {
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
+                
+                res.WriteInt32(0);//race
+                res.WriteInt32(0);//gender
+                res.WriteInt32(classSlot);//class
 
-            // 4bytes
-            res.WriteByte(60);//HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int[] WeaponContainer0 = new int[] { 3 , 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4 , 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
 
-            // 4bytes
-            res.WriteByte(20);//MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
 
-            // 4bytes
-            res.WriteByte(1);
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
 
-            // 2byte 7x loop    /////character stats start here
-            // 2 bytes
-            res.WriteByte(8);//STR
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
 
-            // 2 byte
-            res.WriteByte(7);//VIT
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
 
-            //2 byte
-            res.WriteByte(7); //40  //DEX
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250101, 550101, 450101, 350101, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250101, 550101, 450101, 350101, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250101, 550101, 450101, 350101, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250101, 550101, 450101, 350101, 120101, 0, 0 };
 
-            // 2 byte
-            res.WriteByte(6);//AGI
-            res.WriteByte(0);
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(8);//INT
-            res.WriteByte(0); //45
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(5);///PIE
-            res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(8); //48 //LUK
-            res.WriteByte(0);
-            //end loop
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
         }
 
-        private void wo_4E08E0_Elf_Stats(IBuffer res)
+        private void wo_4E37F0_HumanFemaleClassGear(IBuffer res)
         {
-            res.WriteByte(3);//not sure
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
 
-            // 4bytes
-            res.WriteByte(50);//HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                res.WriteInt32(0);//race
+                res.WriteInt32(1);//gender
+                res.WriteInt32(classSlot);//class
 
-            // 4bytes
-            res.WriteByte(30);//MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
 
-            // 4bytes
-            res.WriteByte(1);//
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
 
-            // 2byte 7x loop    /////character stats start here
-            // 2 bytes
-            res.WriteByte(6);//STR
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
 
-            // 2 byte
-            res.WriteByte(5);//VIT
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
 
-            //2 byte
-            res.WriteByte(8); //40  //DEX
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
 
-            // 2 byte
-            res.WriteByte(8);//AGI
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250201, 550201, 450201, 350201, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250201, 550201, 450201, 350201, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250201, 550201, 450201, 350201, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250201, 550201, 450201, 350201, 120101, 0, 0 };
 
-            // 2 byte
-            res.WriteByte(10);//INT
-            res.WriteByte(0); //45
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(8);///PIE
-            res.WriteByte(0);
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(4); //48 //LUK
-            res.WriteByte(0);
-            //end loop
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
         }
 
-        private void wo_4E08E0_Dwarf_Stats(IBuffer res)
+
+        private void wo_4E37F0_ElfMaleClassGear(IBuffer res)
         {
-            res.WriteByte(1);//not sure
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
 
-            // 4bytes
-            res.WriteByte(80);//HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                res.WriteInt32(1);//race
+                res.WriteInt32(0);//gender
+                res.WriteInt32(classSlot);//class
 
-            // 4bytes
-            res.WriteByte(15);//MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
 
-            // 4bytes
-            res.WriteByte(1);//dont know
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
 
-            // 2byte 7x loop    /////character stats start here
-            // 2 bytes
-            res.WriteByte(9);//STR
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
 
-            // 2 byte
-            res.WriteByte(8);//VIT
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
 
-            //2 byte
-            res.WriteByte(8); //40  //DEX
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
 
-            // 2 byte
-            res.WriteByte(4);//AGI
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250301, 550301, 450301, 350301, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250301, 550301, 450301, 350301, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250301, 550301, 450301, 350301, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250301, 550301, 450301, 350301, 120101, 0, 0 };
 
-            // 2 byte
-            res.WriteByte(5);//INT
-            res.WriteByte(0); //45
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(9);///PIE
-            res.WriteByte(0);
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(5); //48 //LUK
-            res.WriteByte(0);
-            //end loop
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
         }
 
-        private void wo_4E08E0_Porkul_Stats(IBuffer res)
+
+        private void wo_4E37F0_ElfFemaleClassGear(IBuffer res)
         {
-            res.WriteByte(1);//not sure
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
 
-            // 4bytes
-            res.WriteByte(50);//HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                res.WriteInt32(1);//race
+                res.WriteInt32(1);//gender
+                res.WriteInt32(classSlot);//class
 
-            // 4bytes
-            res.WriteByte(20);//MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
 
-            // 4bytes
-            res.WriteByte(1);//dont know
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
 
-            // 2byte 7x loop    /////character stats start here
-            // 2 bytes
-            res.WriteByte(5);//STR
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
 
-            // 2 byte
-            res.WriteByte(6);//VIT
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
 
-            //2 byte
-            res.WriteByte(9); //40  //DEX
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
 
-            // 2 byte
-            res.WriteByte(12);//AGI
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250401, 550401, 450401, 350401, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250401, 550401, 450401, 350401, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250401, 550401, 450401, 350401, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250401, 550401, 450401, 350401, 120101, 0, 0 };
 
-            // 2 byte
-            res.WriteByte(7);//INT
-            res.WriteByte(0); //45
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(7);///PIE
-            res.WriteByte(0);
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(15); //48 //LUK
-            res.WriteByte(0);
-            //end loop
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
         }
 
-        private void wo_4E08E0_Gnome_Stats(IBuffer res)
+
+        private void wo_4E37F0_DwarfMaleClassGear(IBuffer res)
         {
-            res.WriteByte(1);//not sure
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
 
-            // 4bytes
-            res.WriteByte(70);//HP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                res.WriteInt32(2);//race
+                res.WriteInt32(0);//gender
+                res.WriteInt32(classSlot);//class
 
-            // 4bytes
-            res.WriteByte(25);//MP
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
 
-            // 4bytes
-            res.WriteByte(1);//dont know
-            res.WriteByte(0);
-            res.WriteByte(0);
-            res.WriteByte(0);
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
 
-            // 2byte 7x loop    /////character stats start here
-            // 2 bytes
-            res.WriteByte(7);//STR
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
 
-            // 2 byte
-            res.WriteByte(7);//VIT
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
 
-            //2 byte
-            res.WriteByte(4); //40  //DEX
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
 
-            // 2 byte
-            res.WriteByte(7);//AGI
-            res.WriteByte(0);
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250501, 550501, 450501, 350501, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250501, 550501, 450501, 350501, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250501, 550501, 450501, 350501, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250501, 550501, 450501, 350501, 120101, 0, 0 };
 
-            // 2 byte
-            res.WriteByte(6);//INT
-            res.WriteByte(0); //45
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(10);///PIE
-            res.WriteByte(0);
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
 
-            // 2 byte
-            res.WriteByte(6); //48 //LUK
-            res.WriteByte(0);
-            //end loop
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
         }
+
+
+        private void wo_4E37F0_GnomeFemaleClassGear(IBuffer res)
+        {
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
+
+                res.WriteInt32(4);//race
+                res.WriteInt32(1);//gender
+                res.WriteInt32(classSlot);//class
+
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
+
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 251001, 551001, 451001, 351001, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 251001, 551001, 451001, 351001, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 251001, 551001, 451001, 351001, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 251001, 551001, 451001, 351001, 120101, 0, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
+        }
+
+
+        private void wo_4E37F0_PorkulMaleClassGear(IBuffer res)
+        {
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
+
+                res.WriteInt32(3);//race
+                res.WriteInt32(0);//gender
+                res.WriteInt32(classSlot);//class
+
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
+
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250701, 550701, 450701, 350701, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250701, 550701, 450701, 350701, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250701, 550701, 450701, 350701, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250701, 550701, 450701, 350701, 120101, 0, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
+        }
+
+
+        private void wo_4E37F0_PorkulFemaleClassGear(IBuffer res)
+        {
+            int classSlot = 0;
+            for (int load = 0; load < 4; load++)
+            {
+
+                res.WriteInt32(3);//race
+                res.WriteInt32(1);//gender
+                res.WriteInt32(classSlot);//class
+
+                int[] WeaponContainer0 = new int[] { 3, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer1 = new int[] { 4, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer2 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+                int[] WeaponContainer3 = new int[] { 13, 21, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 25, 25, 25, 25, 25, 21, 21 };
+
+                int x = 0;
+                int xx = 0;
+                int xxx = 0;
+                if (classSlot == 0)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer0[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 1)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer1[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 2)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer2[x]);
+
+                        x++;
+                    }
+                }
+                if (classSlot == 3)
+                {
+                    for (int i = 0; i < 19; i++)
+                    {
+                        res.WriteInt32(WeaponContainer3[x]);
+
+                        x++;
+                    }
+                }
+                int[] EQC0 = new int[] { 10300101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250801, 550801, 450801, 350801, 120101, 0, 0 };
+                int[] EQC1 = new int[] { 10200101, 15000101, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250801, 550801, 450801, 350801, 120101, 0, 0 };
+                int[] EQC2 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250801, 550801, 450801, 350801, 120101, 0, 0 };
+                int[] EQC3 = new int[] { 11300101, 0, 0, 120101, 0, 0, 0, 0, 0, 0, 0, 0, 250801, 550801, 450801, 350801, 120101, 0, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    if (classSlot == 0)
+                    {
+                        res.WriteInt32(EQC0[xx]);
+                    }
+                    if (classSlot == 1)
+                    {
+                        res.WriteInt32(EQC1[xx]);
+                    }
+                    if (classSlot == 2)
+                    {
+                        res.WriteInt32(EQC2[xx]);
+                    }
+                    if (classSlot == 3)
+                    {
+                        res.WriteInt32(EQC3[xx]);
+                    }
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteInt32(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);//bool
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+                    res.WriteByte(0);
+
+                    xx++;
+                }
+
+                int[] SoltContainer = new int[] { 1, 2, 16, 8, 32, 64, 128, 4, 0, 0, 0, 0, 16, 128, 64, 32, 8, 4, 0 };
+
+                for (int i = 0; i < 19; i++)
+                {
+                    res.WriteInt32(SoltContainer[xxx]);
+
+                    xxx++;
+                }
+
+                res.WriteByte(19); // how many items to display
+
+                classSlot++;
+            }
+        }
+
+        private void wo_4E0970_Fighter(IBuffer res)
+        {
+            
+            res.WriteInt32(0);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
+            res.WriteByte(14); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
+                                //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
+
+            res.WriteInt16(8);//STR Requirement
+            res.WriteInt16(0);//VIT Requirement
+            res.WriteInt16(0);//DEX Requirement
+            res.WriteInt16(0);//AGI Requirement
+            res.WriteInt16(0);//INT Requirement
+            res.WriteInt16(0);//PIE Requirement
+            res.WriteInt16(0);//LUK Requirement
+
+            res.WriteInt32(30);//Class Bonus HP
+            res.WriteInt32(0);//Class Bonus MP
+
+            res.WriteInt16(2);//Class Bonus STR
+            res.WriteInt16(2);//Class Bonus VIT
+            res.WriteInt16(0);//Class Bonus DEX
+            res.WriteInt16(0);//Class Bonux AGI
+            res.WriteInt16(-1);;//Class Bonus INT
+            res.WriteInt16(0);//Class Bonus PIE
+            res.WriteInt16(0);//Class Bonus LUK
+
+            res.WriteInt32(11101);// states what is in skill slot 0 (left most), 0 = nothing
+            res.WriteInt32(11201);// states what is in skill slot 1 (middle), 0 = nothing              
+            res.WriteInt32(0);// states what is in skill slot 2 (right most), 0 = nothing              
+
+            res.WriteByte(0);//bonus roll number store?
+
+        }
+
+        private void wo_4E0970_Thief(IBuffer res)
+        {
+            res.WriteInt32(1);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
+            res.WriteByte(12);//Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
+                              //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
+
+            res.WriteInt16(0);//STR Requirement
+            res.WriteInt16(0);//VIT Requirement
+            res.WriteInt16(8);//DEX Requirement
+            res.WriteInt16(0);//AGI Requirement
+            res.WriteInt16(0);//INT Requirement
+            res.WriteInt16(0);//PIE Requirement
+            res.WriteInt16(0);//LUK Requirement
+
+            res.WriteInt32(10);//Class Bonus HP
+            res.WriteInt32(0);//Class Bonus MP
+
+            res.WriteInt16(1);//Class Bonus STR
+            res.WriteInt16(0);//Class Bonus VIT
+            res.WriteInt16(1);//Class Bonus DEX
+            res.WriteInt16(1);//Class Bonux AGI
+            res.WriteInt16(-1); ;//Class Bonus INT
+            res.WriteInt16(-1);//Class Bonus PIE
+            res.WriteInt16(1);//Class Bonus LUK
+
+            res.WriteInt32(14101);// states what is in skill slot 0 (left most), 0 = nothing
+            res.WriteInt32(14302);// states what is in skill slot 1 (middle), 0 = nothing              
+            res.WriteInt32(14803);// states what is in skill slot 2 (right most), 0 = nothing              
+
+            res.WriteByte(0);//bonus roll number store?
+        }
+
+        private void wo_4E0970_Mage(IBuffer res)
+        {
+            res.WriteInt32(2);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
+            res.WriteByte(14); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
+                               //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
+
+            res.WriteInt16(0);//STR Requirement
+            res.WriteInt16(0);//VIT Requirement
+            res.WriteInt16(0);//DEX Requirement
+            res.WriteInt16(0);//AGI Requirement
+            res.WriteInt16(8);//INT Requirement
+            res.WriteInt16(0);//PIE Requirement
+            res.WriteInt16(0);//LUK Requirement
+
+            res.WriteInt32(0);//Class Bonus HP
+            res.WriteInt32(50);//Class Bonus MP
+
+            res.WriteInt16(-1);//Class Bonus STR
+            res.WriteInt16(0);//Class Bonus VIT
+            res.WriteInt16(0);//Class Bonus DEX
+            res.WriteInt16(0);//Class Bonux AGI
+            res.WriteInt16(+2); ;//Class Bonus INT
+            res.WriteInt16(+1);//Class Bonus PIE
+            res.WriteInt16(0);//Class Bonus LUK
+
+            res.WriteInt32(13101);// states what is in skill slot 0 (left most), 0 = nothing
+            res.WriteInt32(13404);// states what is in skill slot 1 (middle), 0 = nothing              
+            res.WriteInt32(0);// states what is in skill slot 2 (right most), 0 = nothing              
+
+            res.WriteByte(0);//bonus roll number store?
+        }
+
+        private void wo_4E0970_Priest(IBuffer res)
+        {
+            
+            res.WriteInt32(3);//Class ID Fighter = 0, Thief = 1, Mage = 2, Priest - 3
+            res.WriteByte(10); //Alignment Requirements 0/1 = Fully Locked, 2/3 = Lawful, 4/5 = Neutral. 6/7 = Lawful/Neutral,
+                               //8/9 = Chaotic, 10/11 = Lawful/Chaotic, 12/13 = Neutral Chaotic, 14/15 = Fully unlocked, 16+ = fully locked
+
+            res.WriteInt16(0);//STR Requirement
+            res.WriteInt16(0);//VIT Requirement
+            res.WriteInt16(0);//DEX Requirement
+            res.WriteInt16(0);//AGI Requirement
+            res.WriteInt16(0);//INT Requirement
+            res.WriteInt16(8);//PIE Requirement
+            res.WriteInt16(0);//LUK Requirement
+
+            res.WriteInt32(20);//Class Bonus HP
+            res.WriteInt32(40);//Class Bonus MP
+
+            res.WriteInt16(0);//Class Bonus STR
+            res.WriteInt16(1);//Class Bonus VIT
+            res.WriteInt16(0);//Class Bonus DEX
+            res.WriteInt16(-1);//Class Bonux AGI
+            res.WriteInt16(0); ;//Class Bonus INT
+            res.WriteInt16(2);//Class Bonus PIE
+            res.WriteInt16(0);//Class Bonus LUK
+
+            res.WriteInt32(12501);// states what is in skill slot 0 (left most), 0 = nothing
+            res.WriteInt32(12601);// states what is in skill slot 1 (middle), 0 = nothing              
+            res.WriteInt32(0);// states what is in skill slot 2 (right most), 0 = nothing              
+
+            res.WriteByte(0);//bonus roll number store?
+        }
+
+
+       
+        
+        
     }
 }

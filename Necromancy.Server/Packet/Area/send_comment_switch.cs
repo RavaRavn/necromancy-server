@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_comment_switch : Handler
+    public class send_comment_switch : ClientHandler
     {
         public send_comment_switch(NecServer server) : base(server)
         {
@@ -20,7 +20,7 @@ namespace Necromancy.Server.Packet.Area
            
             res.WriteInt32(0); 
 
-            Router.Send(client, (ushort) AreaPacketId.recv_comment_switch_r, res);
+            Router.Send(client, (ushort) AreaPacketId.recv_comment_switch_r, res, ServerType.Area);
         }
     }
 }

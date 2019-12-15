@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_sv_conf_option_request : Handler
+    public class send_sv_conf_option_request : ClientHandler
     {
         public send_sv_conf_option_request(NecServer server) : base(server)
         {
@@ -17,7 +17,7 @@ namespace Necromancy.Server.Packet.Area
         {
             IBuffer res = BufferProvider.Provide();
             res.WriteInt32(0);
-            Router.Send(client, (ushort) AreaPacketId.recv_sv_conf_option_request_r, res);
+            Router.Send(client, (ushort) AreaPacketId.recv_sv_conf_option_request_r, res, ServerType.Area);
         }
     }
 }

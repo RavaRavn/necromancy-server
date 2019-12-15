@@ -1,4 +1,5 @@
 using Arrowgene.Services.Logging;
+using Necromancy.Server.Database;
 using Necromancy.Server.Logging;
 using Necromancy.Server.Model;
 using Necromancy.Server.Setting;
@@ -12,6 +13,10 @@ namespace Necromancy.Server.Packet
             Logger = LogProvider.Logger<NecLogger>(this);
             Server = server;
             Router = server.Router;
+            Database = server.Database;
+            Settings = server.Setting;
+            Maps = server.Maps;
+            Clients = server.Clients;
         }
 
         public abstract ushort Id { get; }
@@ -20,6 +25,8 @@ namespace Necromancy.Server.Packet
         protected NecSetting Settings { get; }
         protected NecLogger Logger { get; }
         protected PacketRouter Router { get; }
-        public abstract void Handle(NecClient client, NecPacket packet);
+        protected MapLookup Maps { get; }
+        protected ClientLookup Clients { get; }
+        protected IDatabase Database { get; }
     }
 }

@@ -12,7 +12,7 @@ namespace Necromancy.Server.Setting
         public DatabaseSettings()
         {
             Type = DatabaseType.SQLite;
-            SqLitePath = Path.Combine(Util.RelativeExecutingDirectory(), "db.sqlite");
+            SqLiteFolder = Path.Combine(Util.RelativeExecutingDirectory(), "Database");
             Host = "localhost";
             Port = 3306;
             Database = "necromancy";
@@ -43,7 +43,7 @@ namespace Necromancy.Server.Setting
         public DatabaseSettings(DatabaseSettings databaseSettings)
         {
             Type = databaseSettings.Type;
-            SqLitePath = databaseSettings.SqLitePath;
+            SqLiteFolder = databaseSettings.SqLiteFolder;
             Host = databaseSettings.Host;
             Port = databaseSettings.Port;
             User = databaseSettings.User;
@@ -53,7 +53,7 @@ namespace Necromancy.Server.Setting
 
         [DataMember(Order = 0)] public DatabaseType Type { get; set; }
 
-        [DataMember(Order = 1)] public string SqLitePath { get; set; }
+        [DataMember(Order = 1)] public string SqLiteFolder { get; set; }
 
         [DataMember(Order = 2)] public string Host { get; set; }
 

@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_base_check_version_msg : Handler
+    public class send_base_check_version_msg : ConnectionHandler
     {
         public send_base_check_version_msg(NecServer server) : base(server)
         {
@@ -13,7 +13,7 @@ namespace Necromancy.Server.Packet.Msg
 
         public override ushort Id => (ushort) MsgPacketId.send_base_check_version;
 
-        public override void Handle(NecClient client, NecPacket packet)
+        public override void Handle(NecConnection connection, NecPacket packet)
         {
             uint unknown = packet.Data.ReadUInt32();
             uint major = packet.Data.ReadUInt32();
@@ -26,7 +26,7 @@ namespace Necromancy.Server.Packet.Msg
             res.WriteInt32(major);
             res.WriteInt32(minor);
 
-            Router.Send(client,  (ushort) MsgPacketId.recv_base_check_version_r, res);
+            Router.Send(connection,  (ushort) MsgPacketId.recv_base_check_version_r, res);
         }
     }
 }

@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_logout_cancel_request : Handler
+    public class send_logout_cancel_request : ClientHandler
     {
         public send_logout_cancel_request(NecServer server) : base(server)
         {
@@ -16,8 +16,12 @@ namespace Necromancy.Server.Packet.Area
         public override void Handle(NecClient client, NecPacket packet)
         {
             IBuffer res = BufferProvider.Provide();
+
+            client.Character.logoutCanceled = 1;
+
             res.WriteInt32(0);//Ready to discover
-            Router.Send(client, (ushort) AreaPacketId.recv_logout_cancel_request_r, res);
+
+            Router.Send(client, (ushort) AreaPacketId.recv_logout_cancel_request_r, res, ServerType.Area);
         }
     }
 }

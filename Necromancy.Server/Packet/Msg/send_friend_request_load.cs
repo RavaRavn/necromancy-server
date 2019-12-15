@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_friend_request_load : Handler
+    public class send_friend_request_load : ClientHandler
     {
         public send_friend_request_load(NecServer server) : base(server)
         {
@@ -18,7 +18,7 @@ namespace Necromancy.Server.Packet.Msg
             IBuffer res = BufferProvider.Provide();
             res.WriteInt32(0);
      
-            Router.Send(client, (ushort) MsgPacketId.recv_friend_request_load_r, res);
+            Router.Send(client, (ushort) MsgPacketId.recv_friend_request_load_r, res, ServerType.Msg);
         }
     }
 }

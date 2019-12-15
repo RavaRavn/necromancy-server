@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Arrowgene.Services.Buffers;
 using Arrowgene.Services.Logging;
+using Necromancy.Server.Chat;
 using Necromancy.Server.Logging;
 using Necromancy.Server.Model;
+using Necromancy.Server.Packet.Response;
 
 namespace Necromancy.Server.Packet
 {
@@ -24,12 +26,29 @@ namespace Necromancy.Server.Packet
         }
 
         /// <summary>
+        /// Send a packet to a connection.
+        /// </summary>
+        public void Send(NecConnection connection, NecPacket packet)
+        {
+            connection.Send(packet);
+        }
+
+        /// <summary>
         /// Send a packet to a client.
         /// </summary>
-        public void Send(NecClient client, ushort id, IBuffer data)
+        public void Send(NecClient client, ushort id, IBuffer data, ServerType serverType)
         {
-            NecPacket packet = new NecPacket(id, data);
+            NecPacket packet = new NecPacket(id, data, serverType);
             Send(client, packet);
+        }
+
+        /// <summary>
+        /// Send a packet to a connection.
+        /// </summary>
+        public void Send(NecConnection connection, ushort id, IBuffer data)
+        {
+            NecPacket packet = new NecPacket(id, data, connection.ServerType);
+            Send(connection, packet);
         }
 
         /// <summary>
@@ -49,18 +68,19 @@ namespace Necromancy.Server.Packet
         /// Send a packet to multiple clients.
         /// </summary>
         /// <param name="excepts">clients to exclude</param>
-        public void Send(List<NecClient> clients, ushort id, IBuffer data, params NecClient[] excepts)
+        public void Send(List<NecClient> clients, ushort id, IBuffer data, ServerType serverType,
+            params NecClient[] excepts)
         {
-            Send(clients, new NecPacket(id, data), excepts);
+            Send(clients, new NecPacket(id, data, serverType), excepts);
         }
 
 
         /// <summary>
         /// Send a packet to everyone in the map.
         /// </summary>
-        public void Send(Map map, ushort id, IBuffer data, params NecClient[] excepts)
+        public void Send(Map map, ushort id, IBuffer data, ServerType serverType, params NecClient[] excepts)
         {
-            Send(map, new NecPacket(id, data), excepts);
+            Send(map, new NecPacket(id, data, serverType), excepts);
         }
 
         /// <summary>
@@ -73,6 +93,49 @@ namespace Necromancy.Server.Packet
             {
                 Send(client, packet);
             }
+        }
+
+        /// <summary>
+        /// Send a specific packet response.
+        /// </summary>
+        public void Send(PacketResponse response)
+        {
+            foreach (NecClient client in response.Clients)
+            {
+                Send(client, response.ToPacket());
+            }
+        }
+
+        /// <summary>
+        /// Send a specific packet response to a map.
+        /// </summary>
+        public void Send(Map map, PacketResponse response, params NecClient[] excepts)
+        {
+            List<NecClient> mapClients = map.ClientLookup.GetAll();
+            mapClients.AddRange(response.Clients);
+            response.CleatClients();
+            List<NecClient> clients = GetClients(mapClients, excepts);
+            response.AddClients(clients);
+            Send(response);
+        }
+
+        /// <summary>
+        /// Send a specific packet response.
+        /// </summary>
+        public void Send(PacketResponse response, params NecClient[] clients)
+        {
+            response.AddClients(clients);
+            Send(response);
+        }
+
+        /// <summary>
+        /// Send a chat message
+        /// </summary>
+        public void Send(ChatResponse response)
+        {
+            RecvChatNotifyMessage notifyMessage = new RecvChatNotifyMessage(response);
+            notifyMessage.AddClients(response.Recipients);
+            Send(notifyMessage);
         }
 
         private List<NecClient> GetClients(List<NecClient> clients, params NecClient[] excepts)

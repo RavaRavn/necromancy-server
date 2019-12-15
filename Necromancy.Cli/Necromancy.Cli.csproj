@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <RootNamespace>Necromancy.Cli</RootNamespace>
+        <Title>Necromancy Command Line Interface</Title>
+        <Company>Necromancy Team</Company>
+        <Product>Necromancy.Cli</Product>
+        <Version>$(Version)</Version>
+        <Copyright>Copyright © 2019 Necromancy Team</Copyright>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Necromancy.Server\Necromancy.Server.csproj" />
+    </ItemGroup>
+</Project>

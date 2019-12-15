@@ -15,7 +15,7 @@ namespace Necromancy.Server.Packet.Id
         recv_0x831C = 0x831C,
         recv_0xC8D2 = 0xC8D2,
         recv_0xC991 = 0xC991,
-        recv_0xD2D6 = 0xD2D6,
+        recv_0xD2D6 = 0xD2D6, //recv_base_ping_r
         recv_base_check_version_r = 0xEFDD,
         recv_base_login_r = 0xA68E,
         recv_cash_buy_premium_r = 0x6FF,
@@ -147,18 +147,20 @@ namespace Necromancy.Server.Packet.Id
         send_chara_select = 0x610,
         send_chara_select_back = 0x4772, 
         send_chara_select_back_soul_select = 0x007, // placeholder until found
-        send_friend_reply_to_link2 = 0x008, // placeholder until found
+        send_friend_reply_to_link2 = 0x1852,
         send_friend_request_delete_friend = 0x009, // placeholder until found
-        send_friend_request_link_target = 0x010, // placeholder until found
+        send_friend_request_link_target = 0x470C,
+        send_friend_accept_request_link = 0x46FB,
         send_friend_request_load = 0xE1DF,
         send_soul_authenticate_passwd = 0xB4BB,
+        send_skill_request_info = 0x4EB5,
         send_soul_create = 0xCE74,
         send_soul_delete = 0x5208,
         send_soul_rename = 0x011, // placeholder until found
         send_soul_select = 0xA869, // 0xC44F, // :0xA869
         send_soul_select_C44F = 0xC44F,
         send_soul_set_passwd = 0x8C9D,
-        send_system_register_error_report = 0x012, // placeholder until found
+        send_system_register_error_report = 0xC789, 
         send_union_reply_to_invite2 = 0x013, // placeholder until found
         send_union_request_change_role = 0x014, // placeholder until found
         send_union_request_detail = 0x7950,
@@ -169,7 +171,7 @@ namespace Necromancy.Server.Packet.Id
         send_union_request_news = 0x019, // placeholder until found
         send_union_request_secede = 0x020, // placeholder until found
         send_union_request_set_info = 0x021, // placeholder until found
-        send_union_request_set_mantle = 0x022, // placeholder until found
+        send_union_request_set_mantle = 0x5088,
         send_comment_set = 0xFC37,
     }
 }

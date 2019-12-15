@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_soul_select : Handler
+    public class send_soul_select : ClientHandler
     {
         public send_soul_select(NecServer server) : base(server)
         {
@@ -18,10 +18,10 @@ namespace Necromancy.Server.Packet.Msg
             IBuffer res = BufferProvider.Provide();
             res.WriteInt32(0);  // Error: 0 - Success, other values (maybe) erro code 
             res.WriteByte(1);   // 0 - Request password for enter, 1 - Set new password     (bool type)
-            //Router.Send(client, (ushort)MsgPacketId.recv_soul_select_r, res);
+            //Router.Send(client, (ushort)MsgPacketId.recv_soul_select_r, res, ServerType.Msg);
 
             // res.WriteInt32(1); // 0 = OK | 1 = Failed to return to soul selection
-            // Router.Send(client, (ushort) MsgPacketId.recv_chara_select_back_soul_select_r, res);
+            // Router.Send(client, (ushort) MsgPacketId.recv_chara_select_back_soul_select_r, res, ServerType.Msg);
         }
     }
 }

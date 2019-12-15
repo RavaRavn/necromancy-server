@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_cash_shop_open_by_menu : Handler
+    public class send_cash_shop_open_by_menu : ClientHandler
     {
         public send_cash_shop_open_by_menu(NecServer server) : base(server)
         {
@@ -19,7 +19,7 @@ namespace Necromancy.Server.Packet.Area
             res.WriteInt32(0);
             res.WriteByte(0);//Bool
 
-            //Router.Send(client, (ushort) AreaPacketId.recv_cash_shop_open_by_menu, res);            
+            //Router.Send(client, (ushort) AreaPacketId.recv_cash_shop_open_by_menu, res, ServerType.Area);            
         }
     }
 }

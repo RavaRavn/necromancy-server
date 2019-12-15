@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Msg
 {
-    public class send_cash_get_url_common : Handler
+    public class send_cash_get_url_common : ClientHandler
     {
         public send_cash_get_url_common(NecServer server) : base(server)
         {
@@ -19,7 +19,7 @@ namespace Necromancy.Server.Packet.Msg
             res.WriteInt32(0);
             res.WriteInt32(1);
             res.WriteCString("www.unknownone69.com");
-            Router.Send(client, (ushort) MsgPacketId.recv_cash_get_url_common_r, res);
+            Router.Send(client, (ushort) MsgPacketId.recv_cash_get_url_common_r, res, ServerType.Msg);
         }
     }
 }

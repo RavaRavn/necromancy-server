@@ -2,12 +2,11 @@ using Arrowgene.Services.Buffers;
 using Necromancy.Server.Common;
 using Necromancy.Server.Model;
 using Necromancy.Server.Packet.Id;
-using System;
-using System.IO;
+using System.Globalization;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_movement_info : Handler
+    public class send_movement_info : ClientHandler
     {
         public send_movement_info(NecServer server) : base(server)
         {
@@ -16,204 +15,228 @@ namespace Necromancy.Server.Packet.Area
 
         public override ushort Id => (ushort)AreaPacketId.send_movement_info;
 
-
+        int i = 0;
 
         public override void Handle(NecClient client, NecPacket packet)
         {
 
-
-            if (client.Character != null)
-            {
                 client.Character.X = packet.Data.ReadFloat();
                 client.Character.Y = packet.Data.ReadFloat();
                 client.Character.Z = packet.Data.ReadFloat();
 
+                float percentMovementIsX = packet.Data.ReadFloat();
+                float percentMovementIsY = packet.Data.ReadFloat();
+                float verticalMovementSpeedMultiplier = packet.Data.ReadFloat(); //  Confirm by climbing ladder at 1 up or -1 down. or Jumping
 
-                //these bytes below with a varible as a name have not been confirmed this is for testing
-                byte a = packet.Data.ReadByte();
+                float movementSpeed = packet.Data.ReadFloat();
 
-                byte b = packet.Data.ReadByte();
-                byte b1 = packet.Data.ReadByte();
+                float horizontalMovementSpeedMultiplier = packet.Data.ReadFloat(); //always 1 when moving.  Confirm by Coliding with an  object and watching it Dip.
 
-                byte c = packet.Data.ReadByte(); // some sort of direction modified var
+                client.Character.movementPose = packet.Data.ReadByte(); //Character Movement Type: Type 8 Falling / Jumping. Type 3 normal:  Type 9  climbing
 
-                byte d = packet.Data.ReadByte();
+                client.Character.movementAnim = packet.Data.ReadByte(); //Action Modifier Byte
+                                                                        //146 :ladder left Foot Up.      //147 Ladder right Foot Up. 
+                                                                        //151 Left Foot Down,            //150 Right Root Down .. //155 falling off ladder
+                                                                        //81  jumping up,                //84  jumping down       //85 landing
 
-                byte e = packet.Data.ReadByte();
-                byte e1 = packet.Data.ReadByte(); // direction char is moving based from the view of camera? if that makes sense
 
-                byte f = packet.Data.ReadByte(); // also some sort of direction modified var
+                //Battle Logic until we find out how to write battle byte requrements in 'send_data_get_Self_chara_data_request' so the client can send the right info
+                if (client.Character.battleAnim !=0)
+                {
+                client.Character.movementPose = 8 /*client.Character.battlePose*/;  //Setting the pose byte to the 2nd and 3rd digits of our equipped weapon ID. For battle!!
+                client.Character.movementAnim = client.Character.battleAnim; //Setting the animation byte to an animation from C:\WO\Chara\chara\00\041\anim. 231, 232, 233, and 244 are attack animations
+                }
 
-                int Incline = packet.Data.ReadInt32();
+
+
+
+
+                IBuffer res2 = BufferProvider.Provide();
+
+                res2.WriteInt32(client.Character.InstanceId);//Character ID
+                res2.WriteFloat(client.Character.X);
+                res2.WriteFloat(client.Character.Y);
+                res2.WriteFloat(client.Character.Z);
+                                               
+                res2.WriteFloat(percentMovementIsX);
+                res2.WriteFloat(percentMovementIsY);
+                res2.WriteFloat(verticalMovementSpeedMultiplier);
+               
+                res2.WriteFloat(movementSpeed);
+
+                res2.WriteFloat(horizontalMovementSpeedMultiplier);
+
+                res2.WriteByte(client.Character.movementPose); //MOVEMENT ANIM
+                res2.WriteByte(client.Character.movementAnim);//JUMP & FALLING ANIM
+
+                Router.Send(client.Map, (ushort)AreaPacketId.recv_0x8D92, res2, ServerType.Area, client);
+
+                client.Character.battleAnim = 0; //re-setting the byte to 0 at the end of every iteration to allow for normal movements.
+
+
+
+
+
+
+            //Uncomment for debugging movement. causes heavy console output. recommend commenting out "Packet" method in NecLogger.CS when debugging movement
+            if (movementSpeed != 0)
+            {
+                Logger.Debug($"Character {client.Character.Name} is in map {client.Character.MapId} @ : X[{client.Character.X}]Y[{client.Character.Y}]Z[{client.Character.Z}]");
+                Logger.Debug($"X Axis Aligned : {percentMovementIsX.ToString("P", CultureInfo.InvariantCulture)} | Y Axis Aligned  : {percentMovementIsY.ToString("P", CultureInfo.InvariantCulture)}");
+                Logger.Debug($"vertical Speed multi : {verticalMovementSpeedMultiplier}| Move Speed {movementSpeed} | Horizontal Speed Multi {horizontalMovementSpeedMultiplier}");
+                Logger.Debug($"Movement Type[{client.Character.movementPose}]  Type Anim [{client.Character.movementAnim}] View Offset:{client.Character.Heading}");
+                Logger.Debug($"---------------------------------------------------------------");
+
+                //Logger.Debug($"Var 1 {(byte)(percentMovementIsX*255)} |Var 2 {(byte)(percentMovementIsY*255)}  ");
+                //Logger.Debug($" Y to Map Y[{d}][{e}][{e1}][{f} |  and {percentMovementIsY}");
+            }
+            else
+            {
+                Logger.Debug($"Movement Stop Reset");
+                Logger.Debug($"---------------------------------------------------------------");
+            }
+
+
+
+///////////
+/////////-----ToDO:  Find a home for the commands below this line as solutions develop.  Do not Delete!
+///////////
+
+
+
+
+            if (client.Character.takeover == true)
+            {
+                Logger.Debug($"Moving object ID {client.Character.eventSelectReadyCode}.  i is {i}");
+                IBuffer res = BufferProvider.Provide();
+                IBuffer res3 = BufferProvider.Provide();
+
+
+                res.WriteInt32(client.Character.eventSelectReadyCode);
+                res.WriteFloat(client.Character.X);
+                res.WriteFloat(client.Character.Y);
+                res.WriteFloat(client.Character.Z);
+                res.WriteByte(client.Character.Heading); //Heading
+                res.WriteByte((byte)i);//state
+                i++;
+                if (i == 255) i = 0;
                 
-                byte h = packet.Data.ReadByte();
+                Router.Send(client, (ushort)AreaPacketId.recv_object_point_move_notify, res, ServerType.Area);
+                Router.Send(client, (ushort)AreaPacketId.recv_object_point_move_r, res3, ServerType.Area);
 
-                byte i = packet.Data.ReadByte();
 
-                byte j = packet.Data.ReadByte();
+            }
+            //CheckMapChange(client);
 
-                byte k = packet.Data.ReadByte();
-                byte k1 = packet.Data.ReadByte();
-                byte k2 = packet.Data.ReadByte();
-                byte k3 = packet.Data.ReadByte();
+        }
 
-                byte l = packet.Data.ReadByte();
-
-                client.Character.movementAnim = packet.Data.ReadByte();
-
-                client.Character.animJumpFall = packet.Data.ReadByte();
-
-                // the game divides the normal 360 radius by 2. giving view direction only 1-180
-
-                if (client.Character.viewOffset <= 180) // NORTH
-                {
-                    client.Character.wepEastWestAnim = 0;
-                    client.Character.wepNorthSouthAnim = 127;
-
-                    if (client.Character.viewOffset <= 168.75) // SOUTH-EAST
+        private void CheckMapChange(NecClient client)
+        {
+            switch (client.Character.MapId)
+            {
+                case 1001001:
+                    if ((client.Character.X < 4842.5 && client.Character.X > 4282) && client.Character.Y > 4448)
                     {
-                        client.Character.wepEastWestAnim = 127;
-                        client.Character.wepNorthSouthAnim = 127;
-
-                        if (client.Character.viewOffset <= 146.25) // EAST
-                        {
-                            client.Character.wepEastWestAnim = 127;
-                            client.Character.wepNorthSouthAnim = 0;
-
-                            if (client.Character.viewOffset <= 123.75) // SOUTH-EAST
-                            {
-                                client.Character.wepEastWestAnim = 127;
-                                client.Character.wepNorthSouthAnim = 128;
-
-                                if (client.Character.viewOffset <= 101.25) // SOUTH
-                                {
-                                    client.Character.wepEastWestAnim = 0;
-                                    client.Character.wepNorthSouthAnim = 128;
-
-                                    if (client.Character.viewOffset <= 78.75) // SOUTH-WEST
-                                    {
-                                        client.Character.wepEastWestAnim = 128;
-                                        client.Character.wepNorthSouthAnim = 128;
-
-                                        if (client.Character.viewOffset <= 56.25) // WEST
-                                        {
-                                            client.Character.wepEastWestAnim = 128;
-                                            client.Character.wepNorthSouthAnim = 0;
-
-                                            if (client.Character.viewOffset <= 33.75) // NORTH-WEST
-                                            {
-                                                client.Character.wepEastWestAnim = 128;
-                                                client.Character.wepNorthSouthAnim = 127;
-
-                                                if (client.Character.viewOffset <= 11.25) // NORTH
-                                                {
-                                                    client.Character.wepEastWestAnim = 0;
-                                                    client.Character.wepNorthSouthAnim = 127;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        Map map = Server.Maps.Get(1001004);
+                        map.X = 1;
+                        map.Y = 1;
+                        map.Z = 1;
+                        map.Orientation = 0;
+                        map.EnterForce(client);
                     }
-                }
-                //int zz = (e1*-1)+e1;
-                //byte zzz = (byte)zz;
-                if (client.Character.weaponEquipped == false)
-                {
-                    client.Character.wepEastWestAnim = f;
-                    client.Character.wepNorthSouthAnim = e1;
-                }
-
-                /*
-                if (client.Character.weaponEquipped == true)
-                {
-                    client.Character.wepEastWestAnim = f;
-                    client.Character.wepNorthSouthAnim = e1;
-                }
-                */
-
-                // how to sideways walk ^ 127-127 is character left // 128-128 is character right
-                {
-                    // for (byte xd = 0; xd < 255; xd++)
+                    else if ((client.Character.X < 225 && client.Character.X > 50) && client.Character.Y > 10200)
                     {
-
-                        IBuffer res2 = BufferProvider.Provide();
-
-                        res2.WriteInt32(client.Character.Id);//Character ID
-                        res2.WriteFloat(client.Character.X);
-                        res2.WriteFloat(client.Character.Y);
-                        res2.WriteFloat(client.Character.Z);
-
-                        res2.WriteByte(client.Character.wepEastWestAnim); //HANDLES EAST AND WEST ANIMS WITH WEAPONS
-                        res2.WriteByte(client.Character.wepNorthSouthAnim);// // HANDLES NORTH AND SOUTH ANIMS WITH WEAPONS
-                        res2.WriteByte(255); // I DUNNO BUT IT WORKS
-
-                        res2.WriteInt16(0xFFFF); //FIXES MOVEMENT LAG
-
-                        res2.WriteByte(0);// DONT TOUCH >.> CAUSES VISUAL TELEPORTING
-                        res2.WriteByte(client.Character.movementAnim); //MOVEMENT ANIM
-                        res2.WriteByte(client.Character.animJumpFall);//JUMP & FALLING ANIM
-
-
-
-
-                        Router.Send(client.Map, (ushort)AreaPacketId.recv_0xE8B9, res2, client);
-
-
-                        //System.Threading.Thread.Sleep(1000);
+                        Map map = Server.Maps.Get(1001007);
+                        map.X = -5622;
+                        map.Y = -5874;
+                        map.Z = 1;
+                        map.Orientation = 93;
+                        map.EnterForce(client);
                     }
-
-                    IBuffer res = BufferProvider.Provide();
-
-                    res.WriteInt32(client.Character.Id);//Character ID
-                    res.WriteFloat(client.Character.X);
-                    res.WriteFloat(client.Character.Y);
-                    res.WriteFloat(client.Character.Z);
-                    res.WriteByte(client.Character.viewOffset);//View offset
-                    res.WriteByte(0);//Character state?
-
-                    Router.Send(client.Map, (ushort)AreaPacketId.recv_0x6B6A, res, client);
-
-                   // Router.Send(client.Map, (ushort)AreaPacketId.recv_object_point_move_notify, res, client);
-
-
-                }
+                    else if (client.Character.X > 6800 && (client.Character.Y > 945 && client.Character.Y < 1723))
+                    {
+                        Map map = Server.Maps.Get(1001902);
+                        map.X = 22697;
+                        map.Y = -180;
+                        map.Z = 5;
+                        map.Orientation = 132;
+                        map.EnterForce(client);
+                    }
+                    break;
+                case 1001002:
+                case 1001902:
+                    if (client.Character.X < 21797 && (client.Character.Y > -755 && client.Character.Y < 485))
+                    {
+                        Map map = Server.Maps.Get(1001001);
+                        map.X = 6700;
+                        map.Y = 1452;
+                        map.Z = -3;
+                        map.Orientation = 51;
+                        map.EnterForce(client);
+                    }
+                    else if ((client.Character.X > 36246 && client.Character.X < 37254) && client.Character.Y > 5313)
+                    {
+                        Map map = Server.Maps.Get(1001003);
+                        map.X = 3701;
+                        map.Y = -7057;
+                        map.Z = 5;
+                        map.Orientation = 0;
+                        map.EnterForce(client);
+                    }
+                    break;
+                case 1001003:
+                    if ((client.Character.X < 3926 && client.Character.X > 3518) && client.Character.Y < -7511)
+                    {
+                        Map map = Server.Maps.Get(1001902);
+                        map.X = 36638;
+                        map.Y = 5216;
+                        map.Z = -10;
+                        map.Orientation = 87;
+                        map.EnterForce(client);
+                    }
+                    break;
+                case 1001004:
+                    if ((client.Character.X < 1046 && client.Character.X > -1062) && client.Character.Y > 5300)
+                    {
+                        Map map = Server.Maps.Get(1001009);
+                        map.X = -410;
+                        map.Y = -859;
+                        map.Z = 68;
+                        map.Orientation = 0;
+                        map.EnterForce(client);
+                    }
+                    else if (client.Character.X < -413 && (client.Character.Y > -712 && client.Character.Y < -345))
+                    {
+                        Map map = Server.Maps.Get(1001001);
+                        map.X = 4243;
+                        map.Y = 4492;
+                        map.Z = 405;
+                        map.Orientation = 67;
+                        map.EnterForce(client);
+                    }
+                    break;
+                case 1001005:
+                    break;
+                case 1001006:
+                    break;
+                case 1001007:
+                    if ((client.Character.X < -5400 && client.Character.X > -5845) && client.Character.Y < -6288)
+                    {
+                        Map map = Server.Maps.Get(1001001);
+                        map.X = 159;
+                        map.Y = 9952;
+                        map.Z = 601;
+                        map.Orientation = 46;
+                        map.EnterForce(client);
+                    }
+                    break;
+                case 1001008:
+                    break;
+                case 1001009:
+                    break;
+                default:
+                    break;
             }
         }
     }
 }
-
-/*
-  SAMPLE -  [REMOVED CORDS, AND THE LAST 7 BYTES AS THEY DID NOT CHANGE OVER MY TEST DATA]
-
--a -b -b1-c -d -e -e1-f -[incline]-h -i -j -    Varibles to position of packet
-
--AE-4A-A3-BD-5A-2F-7F-BF-[incline]-86-01-75-
--76-51-A3-BD-49-2F-7F-BF-[incline]-61-F8-06-	Running Sideways
--53-C9-A2-BD-A4-30-7F-BF-[incline]-C6-0A-B1-
-
--0C-4D-67-BD-6D-97-7F-3F-[incline]-88-A1-91-
--F0-92-5D-BE-63-EF-79-3F-[incline]-87-00-E1-	Forward running
--7D-8A-5D-BE-DB-EF-79-3F-[incline]-6B-00-E1-
--F0-92-5D-BE-63-EF-79-3F-[incline]-87-00-E1-
-                                                running in said directions below
--8C-93-7D-3F-7C-92-0C-BE-[incline]-D9-C2-F0-  e
-
--94-E6-90-3D-C2-5B-7F-BF-[incline]-E3-EB-C0-  s 
-
--04-F8-7F-BF-B4-BD-7F-BC-[incline]-E6-DE-C4-  w
-
--4A-D1-1F-BE-E6-DC-7C-3F-[incline]-32-E7-CB-  n
-
--07-97-EF-3E-CA-3D-62-3F-[incline]-37-DB-B2-  ne
-
--CE-E1-51-3F-56-94-12-BF-[incline]-16-65-20-  se
-
--53-6A-35-BF-59-9F-34-BF-[incline]-14-8B-CE-  sw
-
--6E-D9-28-BF-D1-6B-40-3F-[incline]-17-6C-BB-  nw
-
-
-*/

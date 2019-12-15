@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_battle_release_attack_pose : Handler
+    public class send_battle_release_attack_pose : ClientHandler
     {
         public send_battle_release_attack_pose(NecServer server) : base(server)
         {
@@ -15,10 +15,14 @@ namespace Necromancy.Server.Packet.Area
 
         public override void Handle(NecClient client, NecPacket packet)
         {
+            IBuffer res2 = BufferProvider.Provide();
+            Router.Send(client, (ushort)AreaPacketId.recv_battle_release_attack_pose_self, res2, ServerType.Area);
+
+
             IBuffer res = BufferProvider.Provide();
-            res.WriteInt32(0);
+            res.WriteInt32(client.Character.InstanceId);
             
-            Router.Send(client, (ushort) AreaPacketId.recv_battle_release_attack_pose_r, res);  
+            Router.Send(client.Map, (ushort) AreaPacketId.recv_battle_release_attack_pose_r, res, ServerType.Area);  
 
             SendBatttleAttackPoseEndNotify(client);          
         }
@@ -27,9 +31,9 @@ namespace Necromancy.Server.Packet.Area
         {
             IBuffer res = BufferProvider.Provide();
             
-            res.WriteInt32(client.Character.Id);
+            res.WriteInt32(client.Character.InstanceId);
 
-            Router.Send(client.Map, (ushort)AreaPacketId.recv_battle_attack_pose_end_notify, res, client);
+            Router.Send(client.Map, (ushort)AreaPacketId.recv_battle_attack_pose_end_notify, res, ServerType.Area, client);
 
             client.Character.weaponEquipped = false;
         }

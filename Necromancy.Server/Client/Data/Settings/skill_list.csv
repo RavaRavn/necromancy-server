@@ -1,0 +1,2167 @@
+#éØï èÓïÒ,ñºèÃ,ÉAÉCÉRÉìID,ê‡ñæ,èKìæèåè,,,,,,,,,,,combo1,,,,,,,,,,,,,,,,,,,combo2,,,,,,,,,,,,,,,,,,,combo3,
+#SkillListID,,,,ÉLÉÉÉâlv,É|ÉCÉìÉg,êEã∆,,,,éÌë∞,,,,,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,
+#,,,,,,FIGHTER,THIEF,MAGE,PRIEST,HUMAN,ELF,DWARF,PORKUL,GNOME,
+#,,,ÇPÇQÇRÇSÇTÇUÇVÇWÇX101112131415161718192021222324,
+
+100011,test1,1,Test Skill 1,1,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100121,test2,1,Test Skill 2,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100122,test3,1,Test Skill 3,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100021,Observe,1,Detects traps. Accuracy of results depends on class and status.,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100031,Peek,1,Some probability of slightly increasing the chances of successfully disarming a treasure box trap.  </br>Failing triggers the trap.,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100041,test5,1,Test Skill 5,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100051,test6,1,Test Skill 6,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100061,Effect Test 01,1,Test Skill 7,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+100071,Stress Test 1,1,Stress Test Skill 1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6011,Simple Camp,1,Simple Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6021,Camp,1,Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6031,High Camp,1,Good Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6041,Union Camp,1,Union Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6051,Royal Camp,1,Royal Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6061,High Royal Camp,1,Good Royal Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6071,Experimental Simple Camp,1,Experimental Simple Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6081,Master Camp,1,Master Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6111,Material Simple Camp,1,Simple Material Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6121,Material Camp,1,Material Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6131,Material High Camp,1,Good Material Camp,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+6901,Fireworks,1,Fireworks,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#éÌë∞ÉXÉLÉã,
+
+151011,Kiss You,0,Increases resistance to status effects.,30,0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+151021,Be Together,0,Increases physical and magic defense.,30,0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+152011,Wordsworth's Breath,0,Increases attribute of magic attacks.,30,0,1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+152021,Celsia's Sigh,0,Increases resistance to poison.,30,0,1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+153011,Barbarossa,0,"Increases Hard Hit Rate when an Elf is in the party,</br>increases Magic Defense when a Porkul is in the party",30,0,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+153021,Keizel,0,Increases physical defense.,30,0,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+154011,St. Gloom,0,Increase Chance of Recovery When Ash,30,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+154021,Shine of Valkyries,0,Increases magic defense.,30,0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+155011,Koro-pok-guru,0,Increases effect time of foods.,30,0,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+155021,Twichsen-guru,0,Increases the amount of condition recovered at Inns.,30,0,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉGÉìÉVÉFÉìÉgÉ}ÉWÉbÉN(çïñÇèp),
+
+161011,Haliteaux,1,"Ancient Magic (Black Magic)</br>Releases a fireball from your palms, doing fire damage. Causes Fire status.",30,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+161021,Mahaliteaux,1,Ancient Magic (Black Magic)</br>Unleashes an explosion over the target area doing fire damage. Causes Fire status.,40,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+161031,Katineaux,1,Ancient Magic (Black Magic)</br>Puts your enemies to sleep and prevents them from taking action.,30,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉGÉìÉVÉFÉìÉgÉ}ÉWÉbÉN(îíñÇèp),
+
+162011,Badeus,1,"Ancient Magic (White Magic)</br>Reverse the body's ability to heal, causing necrosis in cells and doing holy damage.",30,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+162021,Badeal,1,"Ancient Magic (White Magic)</br>Reverse the body's ability to heal, causing necrosis in cells and doing holy damage. Skill has enough power to blow off limbs.",40,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+162031,Montineaux,1,"Ancient Magic (White Magic)</br>Wrap all enemies in the effect area in silence, preventing them from casting spells.",35,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+
+#ÉtÉ@ÉCÉ^Å[,
+#çUåÇ,
+
+111011,Bash,0,Unleashes a single powerful hit with your full might.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111012,Bash,0,Increases strength of skill.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111013,Bash,0,Increases strength of skill.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111014,Bash,0,Increases strength of skill.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111015,Bash,0,Increases strength of skill.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111016,Bash,0,Increases strength of skill.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111017,Bash,0,Increases strength of skill.,15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111021,Leg Bash,0,Decreases movement speed of target.</br>Use following <stree 11101 name> to increase strength.,2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111022,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111023,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111024,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111025,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111026,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,9,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111027,Leg Bash,0,Increases strength and effect time.\nFurther decreases movement speed.,16,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111031,Head Bash,1,Decrease physical attack power of your target</br>Use after <stree 11102 name> to increase strength.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111032,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111033,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111034,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111035,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,12,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111036,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,17,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111037,Head Bash,1,Increases strength and effect time.\nFurther decreases physical attack power.,24,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111041,Shock Wave,1,Unleashes a shock wave that damages enemies.,13,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111042,Shock Wave,1,Increases strength of skill.,13,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111043,Shock Wave,1,Increases strength of skill.,13,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111044,Shock Wave,1,Increases strength of skill.,18,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111045,Shock Wave,1,Increases strength of skill.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111046,Shock Wave,1,Increases strength of skill.,26,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111047,Shock Wave,1,Increases strength of skill.,34,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111051,Round Sweep,0,"With one sweep a blade of air is unleashed, damaging those nearby.</br>Strength is increased for Lawful characters.",4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111052,Round Sweep,0,"Increases strength, decreases recast time.",4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111053,Round Sweep,0,"Increases strength, decreases recast time.",4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111054,Round Sweep,0,"Increases strength, decreases recast time.",9,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111055,Round Sweep,0,"Increases strength, decreases recast time.",10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111056,Round Sweep,0,"Increases strength, decreases recast time.",15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111057,Round Sweep,0,"Increases strength, decreases recast time.",22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111061,Guard Crush,0,Breaks targets guard with a powerful strike.</br>Strength is increased for Chaotic characters.,7,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111062,Guard Crush,0,Increases strength of skill.,7,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111063,Guard Crush,0,Increases strength of skill.,7,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111064,Guard Crush,0,Increases strength of skill.,12,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111065,Guard Crush,0,Increases strength of skill.,14,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111066,Guard Crush,0,Increases strength of skill.,19,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111067,Guard Crush,0,Increases strength of skill.,26,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111071,Piercing,1,Ignores a certain percentage of the target's defense value when attacking.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111072,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111073,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111074,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,34,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111075,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,37,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111076,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,43,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111077,Piercing,1,Increases the amount of defense value ignored</br>Decreases recast time.,53,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111081,Avenge,1,Stores damage received and returns it with the next attack.</br>May cause characters of Chaotic alignment to faint.,4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111082,Avenge,1,Decreases recast time.\nIncreases effect time (the time when damage is stored),4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111083,Avenge,1,Increases counter attacks by 1.\nDecreases recast time.\nIncreases effect time (the time when damage is stored),4,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111084,Avenge,1,Decreases recast time.\nIncreases effect time (the time when damage is stored),9,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111085,Avenge,1,Increases counter attacks by 1.\nDecreases recast time.\nIncreases effect time (the time when damage is stored),10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111086,Avenge,1,Decreases recast time.\nIncreases effect time (the time when damage is stored),15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+111087,Avenge,1,Increases counter attacks by 1.\nDecreases recast time.\nIncreases effect time (the time when damage is stored),22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ñhå‰,
+
+112011,Defend Stance,1,"Decreases physical attack, increases physical defense.",1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112012,Defend Stance,1,Further increases physical defense and effect time.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112013,Defend Stance,1,Further increases physical defense and effect time.\nDecreases recast time.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112014,Defend Stance,1,Further increases physical defense and effect time.\nDecreases recast time.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112015,Defend Stance,1,Further increases physical defense and effect time.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112016,Defend Stance,1,Further increases physical defense and effect time.\nDecreases recast time.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112017,Defend Stance,1,Further increases physical defense and effect time.\nDecreases recast time.,15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112021,Patience,1,Decreases distance of knockback,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112022,Patience,1,Further decreases knockback distance and increases effect time.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112023,Patience,1,Further decreases knockback distance and increases effect time.\nDecreases recast time.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112024,Patience,1,Further decreases knockback distance and increases effect time.\nDecreases recast time.,26,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112025,Patience,1,Further decreases knockback distance and increases effect time.,29,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112026,Patience,1,Further decreases knockback distance and increases effect time.\nDecreases recast time.,34,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112027,Patience,1,Further decreases knockback distance and increases effect time.\nDecreases recast time.,42,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112031,Over Use,1,Sacrifices HP to greatly increase physical and magic defense.</br>Enables Super Armor effect for Lawful characters.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112032,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112033,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112034,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,25,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112035,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112036,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,33,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112037,Over Use,1,Increases Physical Defense\nIncreases Magic Defense\nDecreases recast time.,41,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112041,Sentinel Guard,1,Decreases GP damage when guarding.,2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112042,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112043,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112044,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112045,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112046,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",9,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112047,Sentinel Guard,1,"Further decreases GP damage, decreases recast time, and increases effect time.",16,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112051,Iron Shell,1,"You will become unable to move or act, but most damage will be reduced to 1.",32,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112052,Iron Shell,1,Increases effect time.,32,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112053,Iron Shell,1,Increases effect time.,32,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112054,Iron Shell,1,Increases effect time.,38,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112055,Iron Shell,1,Increases effect time.,41,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112056,Iron Shell,1,Increases effect time.,47,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+112057,Iron Shell,1,Increases effect time.,57,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#âÒïú,
+
+115011,Self Heal ,0,Recovers your HP.,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115012,Self Heal ,0,"Increases recovery amount, decreases recast time.",3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115013,Self Heal ,0,"Increases recovery amount, decreases recast time.",6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115014,Self Heal ,0,"Increases recovery amount, decreases recast time.",10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115015,Self Heal ,0,"Increases recovery amount, decreases recast time.",15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115016,Self Heal ,0,"Increases recovery amount, decreases recast time.",20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+115017,Self Heal ,0,"Increases recovery amount, decreases recast time.",30,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉTÉ|Å[Ég,
+
+116011,Provoke,0,"Provokes enemies, drawing their attention.",3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116012,Provoke,0,Further draws enemy attention.,3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116013,Provoke,0,Further draws enemy attention.,3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116014,Provoke,0,Further draws enemy attention.,7,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116015,Provoke,0,Further draws enemy attention.,7,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116016,Provoke,0,Further draws enemy attention.,10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116017,Provoke,0,Further draws enemy attention.,17,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116021,Rage,1,"Increases OD received on damage over a fixed period of time.</br>For neutral characters, damage will be cut.",10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116022,Rage,1,Increases OD accumulation and effect time.,10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116023,Rage,1,Increases OD accumulation and effect time.,10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116024,Rage,1,Increases OD accumulation and effect time.,15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116025,Rage,1,Increases OD accumulation and effect time.,17,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116026,Rage,1,Increases OD accumulation and effect time.,22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116027,Rage,1,Increases OD accumulation and effect time.,29,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116031,War Cry,1,Increases the STR of all party members in the effect area.</br>OD is also recovered for characters of Neutral alignment.,3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116032,War Cry,1,"Further increases STR, and decreases recast time.",3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116033,War Cry,1,"Further increases STR, and decreases recast time.",3,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116034,War Cry,1,"Further increases STR, and decreases recast time.",8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116035,War Cry,1,"Further increases STR, and decreases recast time.",9,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116036,War Cry,1,"Further increases STR, and decreases recast time.",14,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116037,War Cry,1,"Further increases STR, and decreases recast time.",21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116041,Desperado,1,Greatly decreases physical defense but massively increases physical attack.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116042,Desperado,1,Increases physical attack power and effect time.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116043,Desperado,1,Increases physical attack and effect time.\nDecreases recast time.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116044,Desperado,1,Increases physical attack and effect time.\nDecreases recast time.,25,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116045,Desperado,1,Increases physical attack power and effect time.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116046,Desperado,1,Increases physical attack and effect time.\nDecreases recast time.,32,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116047,Desperado,1,Increases physical attack and effect time.\nDecreases recast time.,40,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116051,Voltage,1,Increases max OD for a fixed period of time.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116052,Voltage,1,Further increase OD accumulation.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116053,Voltage,1,Further increase OD accumulation.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116054,Voltage,1,Further increase OD accumulation.,33,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116055,Voltage,1,Further increase OD accumulation.,36,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116056,Voltage,1,Further increase OD accumulation.,42,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116057,Voltage,1,Further increase OD accumulation.,52,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116061,Power Charge,1,Allows player to charge for a fixed time and then unleash one powerful attack.</br>Players are unable to attack while charging.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116062,Power Charge,1,Decreases time to charge.\nDecreases recast time.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116063,Power Charge,1,Decreases time to charge.\nDecreases recast time.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116064,Power Charge,1,Decreases time to charge.\nDecreases recast time.,13,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116065,Power Charge,1,Decreases time to charge.\nDecreases recast time.,15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116066,Power Charge,1,Decreases time to charge.\nDecreases recast time.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116067,Power Charge,1,Decreases time to charge.\nDecreases recast time.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116071,Offensive Guard,1,Increases attack power following successful guard.,22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116072,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116073,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116074,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116075,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,30,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116076,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,35,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+116077,Offensive Guard,1,Further increases physical attack on guard.\nIncreases effect time.,43,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉpÉbÉVÉu,
+
+117011,Hate Increase ,0,Increases the max amount of Hate accumulated.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117012,Hate Increase ,0,Further increases the max amount of Hate accumulated.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117013,Hate Increase ,0,Further increases the max amount of Hate accumulated.,5,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117014,Hate Increase ,0,Further increases the max amount of Hate accumulated.,10,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117015,Hate Increase ,0,Further increases the max amount of Hate accumulated.,11,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117016,Hate Increase ,0,Further increases the max amount of Hate accumulated.,16,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117017,Hate Increase ,0,Further increases the max amount of Hate accumulated.,23,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117021,Physical Defense Increase (Fighter),0,Increases physical defense.,6,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117022,Physical Defense Increase (Fighter),0,Further increases physical defense.,12,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117023,Physical Defense Increase (Fighter),0,Further increases physical defense.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117024,Physical Defense Increase (Fighter),0,Further increases physical defense.,29,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117025,Physical Defense Increase (Fighter),0,Further increases physical defense.,30,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117026,Physical Defense Increase (Fighter),0,Further increases physical defense.,38,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117027,Physical Defense Increase (Fighter),0,Further increases physical defense.,47,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117031,Max Weight Increase (Fighter),0,Increases max carry weight.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117032,Max Weight Increase (Fighter),0,Further increases max carry weight.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117033,Max Weight Increase (Fighter),0,Further increases max carry weight.,8,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117034,Max Weight Increase (Fighter),0,Further increases max carry weight.,13,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117035,Max Weight Increase (Fighter),0,Further increases max carry weight.,15,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117036,Max Weight Increase (Fighter),0,Further increases max carry weight.,20,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117037,Max Weight Increase (Fighter),0,Further increases max carry weight.,27,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117041,HP Max Increase,0,Increases max HP.,31,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117042,HP Max Increase,0,Further increases max HP.,35,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117043,HP Max Increase,0,Further increases max HP.,40,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117044,HP Max Increase,0,Further increases max HP.,45,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117045,HP Max Increase,0,Further increases max HP.,50,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117046,HP Max Increase,0,Further increases max HP.,55,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117047,HP Max Increase,0,Further increases max HP.,60,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117051,GP Recovery Up,0,Increases the amount of GP recovered at one time.,11,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117052,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,11,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117053,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,11,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117054,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,16,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117055,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,18,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117056,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,23,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117057,GP Recovery Up,0,Further increases the amount of GP recovered at one time.,30,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117061,Physical Attack Increase ,0,Increases physical attack.,18,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117062,Physical Attack Increase ,0,Further increases physical attack power.,22,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117063,Physical Attack Increase ,0,Further increases physical attack power.,28,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117064,Physical Attack Increase ,0,Further increases physical attack power.,35,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117065,Physical Attack Increase ,0,Further increases physical attack power.,41,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117066,Physical Attack Increase ,0,Further increases physical attack power.,50,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117067,Physical Attack Increase ,0,Further increases physical attack power.,61,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117071,Increase of Resistance to Mental Status Effects,1,Increases resistance to mental status effects.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117072,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117073,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,21,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117074,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,26,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117075,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,29,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117076,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,34,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+117077,Increase of Resistance to Mental Status Effects,1,Further increases resistance to mental status effects.,42,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#êEã∆ì¡ê´,
+
+119011,Max HP Increase Lv 1,0,Increases Max MP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119012,Max HP Increase Lv 2,0,Increases Max MP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119013,Max HP Increase Lv 3,0,Increases Max MP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119021,Hate Increase Lv 1,0,Increases the max amount of Hate accumulated.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119022,Hate Increase Lv 2,0,Increases the max amount of Hate accumulated.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119023,Hate Increase Lv 3,0,Increases the max amount of Hate accumulated.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119031,Physical Defense Increase Lv 1,0,Increases physical defense.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119032,Physical Defense Increase Lv 2,0,Increases physical defense.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119033,Physical Defense Increase Lv 3,0,Increases physical defense.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119041,GP Damage Decrease Lv 1,0,Decreases damage to GP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119042,GP Damage Decrease Lv 2,0,Decreases damage to GP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119043,GP Damage Decrease Lv 3,0,Decreases damage to GP.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119051,GP Recovery Increase Lv 1,0,Increases the amount of GP recovered at one time.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119052,GP Recovery Increase Lv 2,0,Increases the amount of GP recovered at one time.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119053,GP Recovery Increase Lv 3,0,Increases the amount of GP recovered at one time.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119061,Time To GP Recovery Decrease Lv 1,0,Decreases the time until GP recovery starts.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119062,Time To GP Recovery Decrease Lv 2,0,Decreases the time until GP recovery starts.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119063,Time To GP Recovery Decrease Lv 3,0,Decreases the time until GP recovery starts.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119201,Loot Time,0,Time required to steal from other players.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119202,Max Weight,0,Avoid penalties for equipping heavy equipment.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119203,Trap Detection Distance,0,The ability to detect traps in your area.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119204,Trap Disarming Ability,0,The ability to disarm traps on treasure chests.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119205,HP Growth Rate,0,HP Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119206,MP Growth Rate,0,MP Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119207,Poison Resistance Growth Rate,0,Poison Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119208,Paralyze Resistance Growth Rate,0,Paralyze Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119209,Petrify Resistance Growth Rate,0,Petrify Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119210,Faint Resistance Growth Rate,0,Faint Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119211,Blind Resistance Growth Rate,0,Blind Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119212,Sleep Resistance Growth Rate,0,Sleep Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119213,Silence Resistance Growth Rate,0,Silence Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119214,Charm Resistance Growth Rate,0,Charm Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119215,Confusion Resistance Growth Rate,0,Confusion Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+119216,Fear Resistance Growth Rate,0,Fear Resistance Growth Rate on level up.,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+
+#ÉvÉäÅ[ÉXÉg,
+#çUåÇ,
+
+121011,Stun Smash,0,"Strikes target in vital area, causing faint status for a short time.</br>Both STR and PIE stats affect skill effect.",4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121012,Stun Smash,0,Increases power.</br>Decreases recast time.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121013,Stun Smash,0,Increases power.</br>Decreases recast time.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121014,Stun Smash,0,Increases power.</br>Decreases recast time.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121015,Stun Smash,0,Increases power.</br>Decreases recast time.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121016,Stun Smash,0,Increases power.</br>Decreases recast time.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121017,Stun Smash,0,Increases power.</br>Decreases recast time.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121021,Fast Break,1,Causes damage with a strong blast and has a chance to cancel actions for a while.</br>Both STR and PIE stats affect skill effect.,12,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121022,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,12,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121023,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,12,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121024,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,17,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121025,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,19,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121026,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,24,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121027,Fast Break,1,Increases power.</br>Decreases recast time.</br>Increases effect time.,31,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121031,Holy Light,1,"Strikes with holy magic.</br>The skill has increased effect on undead enemies.</br>For Chaotic characters, the skill has slight chance of causing instant death on undead monsters.",11,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121032,Holy Light,1,Increases power.</br>Decreases recast time.,11,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121033,Holy Light,1,Increases power.</br>Decreases recast time.,11,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121034,Holy Light,1,Increases power.</br>Decreases recast time.,16,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121035,Holy Light,1,Increases power.</br>Decreases recast time.,18,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121036,Holy Light,1,Increases power.</br>Decreases recast time.,23,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+121037,Holy Light,1,Increases power.</br>Decreases recast time.,30,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ñhå‰,
+
+122011,Sacred Barrier,1,Cancels some damage for its effective time.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122012,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122013,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122014,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,41,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122015,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,44,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122016,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,50,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122017,Sacred Barrier,1,Increases the amount of cancelled damage.</br>Decreases recast time.,60,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122021,Cover Damage,1,"Transfers a certain percentage of the damage dealt to the targeted party member to the caster.</br>Select subject with sub target.</br>For Lawful characters, skill will also recover HP of subject.",3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122022,Cover Damage,1,Increases percentage of damage transferred.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122023,Cover Damage,1,Increases percentage of damage transferred.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122024,Cover Damage,1,Increases percentage of damage transferred.,8,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122025,Cover Damage,1,Increases percentage of damage transferred.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122026,Cover Damage,1,Increases percentage of damage transferred.,14,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+122027,Cover Damage,1,Increases percentage of damage transferred.,21,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ã≠âª,
+
+123011,Protection,1,"Increases physical defense of subject.</br>Select subject with sub target.</br>For Lawful characters, skill will also recover GP of subject.",2,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123012,Protection,1,Further increases physical defense.,2,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123013,Protection,1,Further increases physical defense.,2,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123014,Protection,1,Further increases physical defense.,6,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123015,Protection,1,Further increases physical defense.,6,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123016,Protection,1,Further increases physical defense.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123017,Protection,1,Further increases physical defense.,16,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123021,Mass Protection,1,Increases physical defense of party members within effect area.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123022,Mass Protection,1,Further increases physical defense.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123023,Mass Protection,1,Further increases physical defense.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123024,Mass Protection,1,Further increases physical defense.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123025,Mass Protection,1,Further increases physical defense.,17,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123026,Mass Protection,1,Further increases physical defense.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123027,Mass Protection,1,Further increases physical defense.,29,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123031,Attack Aura,1,Increases physical attack of subject.</br>Select subject with sub target.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123032,Attack Aura,1,Further increases physical attack.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123033,Attack Aura,1,Further increases physical attack.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123034,Attack Aura,1,Further increases physical attack.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123035,Attack Aura,1,Further increases physical attack.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123036,Attack Aura,1,Further increases physical attack.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123037,Attack Aura,1,Further increases physical attack.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123041,Magic Aura,1,Increases magic attack of subject.</br>Select subject with sub target.,13,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123042,Magic Aura,1,Further increases magic attack.,13,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123043,Magic Aura,1,Further increases magic attack.,13,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123044,Magic Aura,1,Further increases magic attack.,18,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123045,Magic Aura,1,Further increases magic attack.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123046,Magic Aura,1,Further increases magic attack.,25,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123047,Magic Aura,1,Further increases magic attack.,32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123051,Resist,1,Increases magic defense of subject.</br>Select subject with sub target.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123052,Resist,1,Further increases magic defense.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123053,Resist,1,Further increases magic defense.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123054,Resist,1,Further increases magic defense.,8,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123055,Resist,1,Further increases magic defense.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123056,Resist,1,Further increases magic defense.,14,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123057,Resist,1,Further increases magic defense.,21,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123061,Mass Resist,1,Increases magic defense of party members within effect area.,21,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123062,Mass Resist,1,Further increases magic defense.,21,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123063,Mass Resist,1,Further increases magic defense.,21,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123064,Mass Resist,1,Further increases magic defense.,26,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123065,Mass Resist,1,Further increases magic defense.,29,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123066,Mass Resist,1,Further increases magic defense.,34,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+123067,Mass Resist,1,Further increases magic defense.,42,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#âÒïú,
+
+125011,Heal,0,Recovers HP of subject.</br>Select subject with sub target.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125012,Heal,0,Increases the amount of HP recovered.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125013,Heal,0,Increases the amount of HP recovered.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125014,Heal,0,Increases the amount of HP recovered.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125015,Heal,0,Increases the amount of HP recovered.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125016,Heal,0,Increases the amount of HP recovered.,8,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125017,Heal,0,Increases the amount of HP recovered.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125021,Middle Heal,0,Recovers a large amount of HP to the subject.</br>Select subject with sub target.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125022,Middle Heal,0,Increases the amount of HP recovered.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125023,Middle Heal,0,Increases the amount of HP recovered.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125024,Middle Heal,0,Increases the amount of HP recovered.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125025,Middle Heal,0,Increases the amount of HP recovered.,17,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125026,Middle Heal,0,Increases the amount of HP recovered.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125027,Middle Heal,0,Increases the amount of HP recovered.,29,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125031,Poison Cure,0,Recovers Poison status of subject.</br>Select subject with sub target.,2,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125041,Paralysis Cure,0,Recovers paralyzed status of subject.</br>Select subject with sub target.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125051,Body Cure,0,Recovers physical status effects of party members within effect area.,12,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125061,Heal Circle,0,Recovers HP of party members within effect area.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125062,Heal Circle,0,Increases the amount of HP recovered.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125063,Heal Circle,0,Increases the amount of HP recovered.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125064,Heal Circle,0,Increases the amount of HP recovered.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125065,Heal Circle,0,Increases the amount of HP recovered.,11,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125066,Heal Circle,0,Increases the amount of HP recovered.,16,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125067,Heal Circle,0,Increases the amount of HP recovered.,23,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125071,Middle Heal Circle,0,"Recovers a large amount of HP to party members within effect area.</br>For Lawful characters, the amount of HP recovered is increased.",32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125072,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decrease cast time.,32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125073,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decreases recast time.,32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125074,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decreases casting time.</br>Decreases recast time.,38,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125075,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decreases recast time.,41,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125076,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decrease cast time.,47,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125077,Middle Heal Circle,0,Increases the amount of HP recovered.</br>Decreases casting time.</br>Decreases recast time.,57,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125081,Mind Cure,0,Recovers mental status effects of party members within effect area.,13,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125091,Repair Shield,0,"Recovers GP of subject.</br>Select subject with sub target.</br>For Chaotic characters, skill also recovers OD.",4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125092,Repair Shield,0,Increases the amount of GP recovered.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125093,Repair Shield,0,Increases the amount of GP recovered.,4,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125094,Repair Shield,0,Increases the amount of GP recovered.,9,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125095,Repair Shield,0,Increases the amount of GP recovered.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125096,Repair Shield,0,Increases the amount of GP recovered.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125097,Repair Shield,0,Increases the amount of GP recovered.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125101,Revive,0,Small possibility of reviving subject.</br>On failure: Subject is turned to ash or becomes lost.</br>Select subject with sub target.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125102,Revive,0,Increases Revival Success Rate. Decreases recast time.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125103,Revive,0,Increases Revival Success Rate. Decreases recast time.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125104,Revive,0,Increases Revival Success Rate. Decreases recast time.,25,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125105,Revive,0,Increases Revival Success Rate. Decreases recast time.,28,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125106,Revive,0,Increases Revival Success Rate. Decreases recast time.,33,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125107,Revive,0,Increases Revival Success Rate. Decreases recast time.,41,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125111,Resurrection,0,Medium possibility of reviving target</br>On failure: Subject is turned to ash or becomes lost.</br>Select subject with sub target.,40,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125112,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,40,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125113,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,40,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125114,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,48,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125115,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,53,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125116,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,61,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125117,Resurrection,0,Increases Revival Success Rate. Decreases recast time.,76,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+125121,Divine Heal,0,Cures most status effects of subject and completely restores HP</br>Select subject with subtarget.,45,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉTÉ|Å[Ég,
+
+126011,Divine Armor,1,Prevents party members in the effect area from being interrupted when being attacked.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126012,Divine Armor,1,Increases effect time.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126013,Divine Armor,1,Increases effect time.,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126014,Divine Armor,1,Increases effect time.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126015,Divine Armor,1,Increases effect time.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126016,Divine Armor,1,Increases effect time.,8,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126017,Divine Armor,1,Increases effect time.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126021,Harmless,1,Decreases effect of certain gimmicks applied to party members within effect area.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126022,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126023,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,20,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126024,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,25,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126025,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,28,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126026,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126027,Harmless,1,Decreases effect of traps further.</br>Increases skill effect time.,40,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126031,Torchlight,0,Area around you becomes brighter.</br>Any stealthed enemies that enter effect area become unstealthed and paralyzed for 5 seconds.,3,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+126041,Divine Trap,1,High probability of increasing the chances of successfully disarming a treasure box trap.  </br>Failing triggers the trap.,30,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉpÉbÉVÉu,
+
+128011,Physical Defense Increase (Priest),0,Increases physical defense.,2,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128012,Physical Defense Increase (Priest),0,Increases physical defense further.,8,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128013,Physical Defense Increase (Priest),0,Increases physical defense further.,15,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128014,Physical Defense Increase (Priest),0,Increases physical defense further.,24,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128015,Physical Defense Increase (Priest),0,Increases physical defense further.,32,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128016,Physical Defense Increase (Priest),0,Increases physical defense further.,40,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128017,Physical Defense Increase (Priest),0,Increases physical defense further.,55,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128021,Fast Cast,0,Decreases casting time.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128022,Fast Cast,0,Decreases casting time further.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128023,Fast Cast,0,Decreases casting time further.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128024,Fast Cast,0,Decreases casting time further.,41,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128025,Fast Cast,0,Decreases casting time further.,44,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128026,Fast Cast,0,Decreases casting time further.,50,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128027,Fast Cast,0,Decreases casting time further.,60,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128031,Magic Defense Increase (Priest),0,Increases magic defense.,24,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128032,Magic Defense Increase (Priest),0,Increases magic defense further.,30,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128033,Magic Defense Increase (Priest),0,Increases magic defense further.,36,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128034,Magic Defense Increase (Priest),0,Increases magic defense further.,42,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128035,Magic Defense Increase (Priest),0,Increases magic defense further.,48,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128036,Magic Defense Increase (Priest),0,Increases magic defense further.,54,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128037,Magic Defense Increase (Priest),0,Increases magic defense further.,60,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128041,Bodily Resistance Increase ,0,Increases resistance to physical status effects.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128042,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128043,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,22,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128044,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,27,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128045,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,30,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128046,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,35,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128047,Bodily Resistance Increase ,0,Increases resistance to physical status effects further.,43,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128051,Max MP Increase (Priest),0,Increases max MP.,30,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128052,Max MP Increase (Priest),0,Increases max MP further.,36,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128053,Max MP Increase (Priest),0,Increases max MP further.,42,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128054,Max MP Increase (Priest),0,Increases max MP further.,48,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128055,Max MP Increase (Priest),0,Increases max MP further.,54,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128056,Max MP Increase (Priest),0,Increases max MP further.,60,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128057,Max MP Increase (Priest),0,Increases max MP further.,66,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128061,Max Weight Increase (Priest),0,Increases max carry weight.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128062,Max Weight Increase (Priest),0,Increases max carry weight further.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128063,Max Weight Increase (Priest),0,Increases max carry weight further.,5,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128064,Max Weight Increase (Priest),0,Increases max carry weight further.,10,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128065,Max Weight Increase (Priest),0,Increases max carry weight further.,11,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128066,Max Weight Increase (Priest),0,Increases max carry weight further.,16,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+128067,Max Weight Increase (Priest),0,Increases max carry weight further.,23,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#êEã∆ì¡ê´,
+
+129011,Decrease of MP for Heal Skills Lv 1,0,Decreases MP consumed for healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129012,Decrease of MP for Heal Skills Lv 2,0,Decreases MP consumed for healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129013,Decrease of MP for Heal Skills Lv 3,0,Decreases MP consumed for healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129021,Recovery of Heal Skills Increase Lv 1,0,Increases amount healed when using healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129022,Recovery of Heal Skills Increase Lv 2,0,Increases amount healed when using healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129023,Recovery of Heal Skills Increase Lv 3,0,Increases amount healed when using healing skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129031,Physical Defense Increase Lv 1,0,Increases physical defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129032,Physical Defense Increase Lv 2,0,Increases physical defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129033,Physical Defense Increase Lv 3,0,Increases physical defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129041,Magic Defense Increase Lv 1,0,Increases magic defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129042,Magic Defense Increase Lv 2,0,Increases magic defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129043,Magic Defense Increase Lv 3,0,Increases magic defense.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129051,Increase of MP Recovery from Camp Items Lv 1,0,Increases MP restored with camp items.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129052,Increase of MP Recovery from Camp Items Lv 2,0,Increases MP restored with camp items.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129053,Increase of MP Recovery from Camp Items Lv 3,0,Increases MP restored with camp items.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129061,Basic Revival Success Rate Increase Lv 1,0,Increases the chance of revival.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129062,Basic Revival Success Rate Increase Lv 2,0,Increases the chance of revival.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129063,Basic Revival Success Rate Increase Lv 3,0,Increases the chance of revival.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129071,Increase Chance for Recovery Skills Lv 1,0,Increases the successful rate of revival skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129072,Increase Chance for Recovery Skills Lv 2,0,Increases the successful rate of revival skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129073,Chance for Recovery Skills Increase Lv 3,0,Increases the successful rate of revival skills.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129201,Loot Time,0,Time required to steal from other players.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129202,Max Weight,0,Avoid penalties for equipping heavy equipment.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129203,Trap Detection Distance,0,The ability to detect traps in your area.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129204,Trap Disarming Ability,0,The ability to disarm traps on treasure chests.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129205,HP Growth Rate,0,HP Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129206,MP Growth Rate,0,MP Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129207,Poison Resistance Growth Rate,0,Poison Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129208,Paralyze Resistance Growth Rate,0,Paralyze Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129209,Petrify Resistance Growth Rate,0,Petrify Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129210,Faint Resistance Growth Rate,0,Faint Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129211,Blind Resistance Growth Rate,0,Blind Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129212,Sleep Resistance Growth Rate,0,Sleep Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129213,Silence Resistance Growth Rate,0,Silence Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129214,Charm Resistance Growth Rate,0,Charm Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129215,Confusion Resistance Growth Rate,0,Confusion Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+129216,Fear Resistance Growth Rate,0,Fear Resistance Growth Rate on level up.,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#éØï èÓïÒ,ñºèÃ,ÉAÉCÉRÉìID,ê‡ñæ
+,èKìæèåè,,,,,,,,,,,combo1,,,,,,,,,,,,,,,,,,,combo2,,,,,,,,,,,,,,,,,,,combo3,
+#SkillListID,,,,ÉLÉÉÉâlv,É|ÉCÉìÉg,êEã∆,,,,éÌë∞,,,,,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,ëféË,äiì¨,íZåï,ï–éËåï,ÉåÉCÉsÉA,óºéËåï,ï–éËìÅ,óºéËìÅ,ï–éËïÄ,óºéËïÄ,ï–éËûû,óºéËûû,ï–éËèÒ,óºéËèÒ,ëÑ,ã|,É{ÉEÉKÉì,èe,äyäÌ,
+#,,,,,,FIGHTER,THIEF,MAGE,PRIEST,HUMAN,ELF,DWARF,PORKUL,GNOME,
+#,,,ÇPÇQÇRÇSÇTÇUÇVÇWÇX101112131415161718192021222324,
+#ÉÅÉCÉW,
+#çUåÇ,
+
+131011,Flame Arrow,0,Unleashes a ball of fire from the palm doing damage to any enemies it touches.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131012,Flame Arrow,0,Increases skill attack power.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131013,Flame Arrow,0,Increases skill attack power.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131014,Flame Arrow,0,Increases skill attack power.\nDecreases recast time.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131015,Flame Arrow,0,Increases skill attack power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131016,Flame Arrow,0,Increases skill attack power.\nDecreases recast time.,8,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131017,Flame Arrow,0,Increases skill attack power.\nDecreases recast time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131021,Fireball,0,Unleashes a giant fireball which explodes at the moment it makes contact with an enemy.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131022,Fireball,0,Increases power.</br>Decreases recast time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131023,Fireball,0,Increases power.</br>Decreases recast time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131024,Fireball,0,Increases power.</br>Decreases recast time.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131025,Fireball,0,Increases power.</br>Decreases recast time.,28,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131026,Fireball,0,Increases power.</br>Decreases recast time.,33,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131027,Fireball,0,Increases power.</br>Decreases recast time.,41,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131031,Ice Burst,0,"Unleashes a blast of cold doing damage and preventing movement to enemies within the effect area.</br>For Neutral characters, casting time is decreased.",5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131032,Ice Burst,0,Increases skill attack power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131033,Ice Burst,0,Increases skill attack power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131034,Ice Burst,0,Increases skill attack power.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131035,Ice Burst,0,Increases skill attack power.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131036,Ice Burst,0,Increases skill attack power.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131037,Ice Burst,0,Increases skill attack power.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131041,Earth Tremor,0,"Create an earthquake dealing damage to and decreasing movement speed of nearby enemies.</br>For Chaotic characters, casting time is decreased.",4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131042,Earth Tremor,0,Increases skill attack power.,4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131043,Earth Tremor,0,Increases skill attack power.,4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131044,Earth Tremor,0,Increases skill attack power.,9,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131045,Earth Tremor,0,Increases skill attack power.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131046,Earth Tremor,0,Increases skill attack power.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131047,Earth Tremor,0,Increases skill attack power.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131051,Air Wall,0,"Sets a whirlwind ahead of the caster, blowing back away enemies.</br>Wall disappears when touched by an enemy.",2,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131052,Air Wall,0,Increases skill attack power and effect time.,2,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131053,Air Wall,0,Increases skill attack power and effect time.,2,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131054,Air Wall,0,Increases skill attack power and effect time.</br>Wall disappears when touched by enemies two times.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131055,Air Wall,0,Increases skill attack power and effect time.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131056,Air Wall,0,Increases skill attack power and effect time.,9,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131057,Air Wall,0,Increases skill attack power and effect time.</br>Wall disappears when touched by enemies three times.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131061,Nuclear Blast,0,A magic born from the study of ancient arcana.</br>Nuclear Blast has an overwhelming attack power but also has a large cost to the caster.,50,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131071,Magic Missile,0,Creates a magic projectile which will be thrown forward dealing physical damage.</br>Note that the projectile may be blocked with shields.,4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131072,Magic Missile,0,Increases skill attack power.\nDecreases recast time.,4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131073,Magic Missile,0,Increases skill attack power.,4,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131074,Magic Missile,0,Increases skill attack power.\nDecreases recast time.,9,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131075,Magic Missile,0,Increases skill attack power.\nDecreases recast time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131076,Magic Missile,0,Increases skill attack power.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131077,Magic Missile,0,Increases skill attack power.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131081,Fire Blast,0,"Detonates a blast slightly ahead of the caster.</br>For Lawful characters, casting time is decreased.",3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131082,Fire Blast,0,Increases skill attack power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131083,Fire Blast,0,Increases skill attack power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131084,Fire Blast,0,Increases skill attack power.,8,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131085,Fire Blast,0,Increases skill attack power.,9,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131086,Fire Blast,0,Increases skill attack power.,14,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131087,Fire Blast,0,Increases skill attack power.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131091,Earthquake,0,Causes massive fissures in the ground around the caster causing damage and movement penalties to nearby enemies.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131092,Earthquake,0,Increases power.</br>Decreases recast time.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131093,Earthquake,0,Increases power.</br>Decreases recast time.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131094,Earthquake,0,Increases power.</br>Decreases recast time.,27,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131095,Earthquake,0,Increases power.</br>Decreases recast time.,30,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131096,Earthquake,0,Increases power.</br>Decreases recast time.,35,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131097,Earthquake,0,Increases power.</br>Decreases recast time.,43,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131101,Ice Pillar,0,Rapidly decreases the air temperature in effect area freezing those nearby.</br>Affected enemies receive damage and have their movement blocked.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131102,Ice Pillar,0,Increases power.</br>Decreases recast time.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131103,Ice Pillar,0,Increases power.</br>Decreases recast time.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131104,Ice Pillar,0,Increases power.</br>Decreases recast time.,28,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131105,Ice Pillar,0,Increases power.</br>Decreases recast time.,31,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131106,Ice Pillar,0,Increases power.</br>Decreases recast time.,36,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131107,Ice Pillar,0,Increases power.</br>Decreases recast time.,44,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131111,Air Walls,0,Encloses the caster in walls of wind blowing back those that touch it</br>Walls disappear when touched by an enemy.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131112,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131113,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131114,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.</br>Effect disappears after second enemy contacts.,26,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131115,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.,29,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131116,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.,34,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131117,Air Walls,0,Increases power.</br>Decreases casting time.</br>Decreases recast time.</br>Effect disappears after third enemy contacts.,42,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131121,Icicle Arrow,0,Unleash a pillar of ice from your palms doing damage to enemies.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131122,Icicle Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131123,Icicle Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131124,Icicle Arrow,0,Increases power.\nDecreases recast time.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131125,Icicle Arrow,0,Increases power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131126,Icicle Arrow,0,Increases power.\nDecreases recast time.,8,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131127,Icicle Arrow,0,Increases power.\nDecreases recast time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131131,Stone Arrow,0,"Releases a projectile from the palm, damaging enemies.",3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131132,Stone Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131133,Stone Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131134,Stone Arrow,0,Increases power.\nDecreases recast time.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131135,Stone Arrow,0,Increases power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131136,Stone Arrow,0,Increases power.\nDecreases recast time.,8,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131137,Stone Arrow,0,Increases power.\nDecreases recast time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131141,Wind Arrow,0,"Releases a whirlwind from palm, causing damage.",3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131142,Wind Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131143,Wind Arrow,0,Increases power.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131144,Wind Arrow,0,Increases power.\nDecreases recast time.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131145,Wind Arrow,0,Increases power.,5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131146,Wind Arrow,0,Increases power.\nDecreases recast time.,8,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+131147,Wind Arrow,0,Increases power.\nDecreases recast time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#é„ëÃ,
+
+134011,Movement Bind ,1,Briefly decreases the movement speed of an enemy.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134012,Movement Bind ,1,Increases effect time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134013,Movement Bind ,1,Increases effect time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134014,Movement Bind ,1,Increases effect time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134015,Movement Bind ,1,Increases effect time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134016,Movement Bind ,1,Increases effect time.,13,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134017,Movement Bind ,1,Increases effect time.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134021,Action Bind ,1,Briefly prevents an enemy from acting.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134022,Action Bind ,1,Increases effect time.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134023,Action Bind ,1,Increases effect time.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134024,Action Bind ,1,Increases effect time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134025,Action Bind ,1,Increases effect time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134026,Action Bind ,1,Increases effect time.,13,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134027,Action Bind ,1,Increases effect time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134031,Hard Bind,1,Briefly prevents an enemy from acting.</br>In addition briefly decreases movement speed.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134032,Hard Bind,1,Increases effect time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134033,Hard Bind,1,Increases effect time.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134034,Hard Bind,1,Increases effect time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134035,Hard Bind,1,Increases effect time.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134036,Hard Bind,1,Increases effect time.,26,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134037,Hard Bind,1,Increases effect time.,33,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134041,Poison Gas,1,Causes a targeted enemy to become poisoned.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134042,Poison Gas,1,Increases strength of poison.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134043,Poison Gas,1,Increases strength of poison.,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134044,Poison Gas,1,Increases strength of poison.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134045,Poison Gas,1,Increases strength of poison.,6,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134046,Poison Gas,1,Increases strength of poison.,9,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134047,Poison Gas,1,Increases strength of poison.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134051,Paralyzing Wind,1,Causes Paralyze to one enemy.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134052,Paralyzing Wind,1,Increases effect time.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134053,Paralyzing Wind,1,Increases effect time.,3,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134054,Paralyzing Wind,1,Increases effect time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134055,Paralyzing Wind,1,Increases effect time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134056,Paralyzing Wind,1,Increases effect time.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134057,Paralyzing Wind,1,Increases effect time.,17,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134061,Armor Melt ,1,"Decreases physical defense of target.</br>For Chaotic characters, skill will also decrease physical attack.",7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134062,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134063,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,7,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134064,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134065,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134066,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,14,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+134067,Armor Melt ,1,Decrease physical defense further.</br>Decrease recast time.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#âÒïú,
+
+135011,Mana Steal ,0,Absorbs MP from target.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135012,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135013,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,11,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135014,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135015,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,18,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135016,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135017,Mana Steal ,0,Increases the amount of MP absorbed.</br>Decreases recast time.,30,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135021,Life Steal,0,Absorbs HP from target.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135022,Life Steal,0,Increases power and amount of HP absobed.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135023,Life Steal,0,Increases power and amount of HP absobed.,10,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135024,Life Steal,0,Increases power and amount of HP absobed.,15,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135025,Life Steal,0,Increases power and amount of HP absobed.,17,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135026,Life Steal,0,Increases power and amount of HP absobed.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+135027,Life Steal,0,Increases power and amount of HP absobed.,29,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉTÉ|Å[Ég,
+
+136011,Quick Cast,1,Decreases casting time.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136012,Quick Cast,1,Increases effect time.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136013,Quick Cast,1,Increases effect time.,16,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136014,Quick Cast,1,Increases effect time.,21,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136015,Quick Cast,1,Increases effect time.,22,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136016,Quick Cast,1,Increases effect time.,27,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136017,Quick Cast,1,Increases effect time.,34,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136021,Victim Return ,0,"Moves the body of a party member back to the last Guardian Statue touched.</br>Select subject with subtarget.</br>Unable to use this skill if there are no Guardian Statues on the map.</br>Also, unable to move to other map's Guardian Statue.",5,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136031,Invest Flame,0,"Unleashes a fireball during weapon attack.</br>For Neutral characters, fireball attack power is increased.",20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136032,Invest Flame,0,Increases effect time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136033,Invest Flame,0,Increases effect time.,20,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136034,Invest Flame,0,Increases effect time.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136035,Invest Flame,0,Increases effect time.,27,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136036,Invest Flame,0,Increases effect time.,32,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+136037,Invest Flame,0,Increases effect time.,39,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉpÉbÉVÉu,
+
+137011,Magic Attack Increase,0,Increases magic attack.,13,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137012,Magic Attack Increase,0,Increases magic attack further.,19,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137013,Magic Attack Increase,0,Increases magic attack further.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137014,Magic Attack Increase,0,Increases magic attack further.,31,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137015,Magic Attack Increase,0,Increases magic attack further.,37,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137016,Magic Attack Increase,0,Increases magic attack further.,44,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137017,Magic Attack Increase,0,Increases magic attack further.,50,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137021,Increase Magic Defense (Mage),0,Increases magic defense.,17,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137022,Increase Magic Defense (Mage),0,Increases magic defense further.,23,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137023,Increase Magic Defense (Mage),0,Increases magic defense further.,30,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137024,Increase Magic Defense (Mage),0,Increases magic defense further.,36,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137025,Increase Magic Defense (Mage),0,Increases magic defense further.,42,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137026,Increase Magic Defense (Mage),0,Increases magic defense further.,50,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137027,Increase Magic Defense (Mage),0,Increases magic defense further.,60,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137031,Max MP Increase (Mage),0,Increases max MP.,12,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137032,Max MP Increase (Mage),0,Increases max MP further.,18,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137033,Max MP Increase (Mage),0,Increases max MP further.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137034,Max MP Increase (Mage),0,Increases max MP further.,36,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137035,Max MP Increase (Mage),0,Increases max MP further.,46,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137036,Max MP Increase (Mage),0,Increases max MP further.,58,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137037,Max MP Increase (Mage),0,Increases max MP further.,70,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137041,Max Weight Increase (Mage),0,Increases max carry weight.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137042,Max Weight Increase (Mage),0,Increases max carry weight further.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137043,Max Weight Increase (Mage),0,Increases max carry weight further.,25,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137044,Max Weight Increase (Mage),0,Increases max carry weight further.,30,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137045,Max Weight Increase (Mage),0,Increases max carry weight further.,32,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137046,Max Weight Increase (Mage),0,Increases max carry weight further.,37,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+137047,Max Weight Increase (Mage),0,Increases max carry weight further.,44,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#êEã∆ì¡ê´,
+
+139011,Magic Attack Increase Lv 1,0,Increases magic attack.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139012,Magic Attack Increase Lv 2,0,Increases magic attack.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139013,Magic Attack Increase Lv 3,0,Increases magic attack.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139021,Magic Defense Increase Lv 1,0,Increases magic defense.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139022,Magic Defense Increase Lv 2,0,Increases magic defense.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139023,Magic Defense Increase Lv 3,0,Increases magic defense.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139031,Max MP Increase Lv 1,0,Increases Max MP.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139032,Max MP Increase Lv 2,0,Increases Max MP.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139033,Max MP Increase Lv 3,0,Increases Max MP.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139041,Increase of MP Recovery from Camp Items Lv 1,0,Increases MP restored with camp items.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139042,Increase of MP Recovery from Camp Items Lv 2,0,Increases MP restored with camp items.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139043,Increase of MP Recovery from Camp Items Lv 3,0,Increases MP restored with camp items.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139051,Silence Resistance Increase Lv 1,0,Gives you resistant to Silent status effect.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139052,Silence Resistance Increase Lv 2,0,Gives you resistant to Silent status effect.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139053,Silence Resistance Increase Lv 3,0,Gives you resistant to Silent status effect.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139061,Decrease of Cool Down Time for Mage Skills Lv 1,0,Decreases cool down time for Mage skills.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139062,Decrease of Cool Down Time for Mage Skills Lv 2,0,Decreases cool down time for Mage skills.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139063,Decrease of Cool Down Time for Mage Skills Lv 3,0,Decreases cool down time for Mage skills.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139201,Loot Time,0,Time required to steal from other players.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139202,Max Weight,0,Avoid penalties for equipping heavy equipment.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139203,Trap Detection Distance,0,The ability to detect traps in your area.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139204,Trap Disarming Ability,0,The ability to disarm traps on treasure chests.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139205,HP Growth Rate,0,HP Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139206,MP Growth Rate,0,MP Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139207,Poison Resistance Growth Rate,0,Poison Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139208,Paralyze Resistance Growth Rate,0,Paralyze Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139209,Petrify Resistance Growth Rate,0,Petrify Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139210,Faint Resistance Growth Rate,0,Faint Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139211,Blind Resistance Growth Rate,0,Blind Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139212,Sleep Resistance Growth Rate,0,Sleep Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139213,Silence Resistance Growth Rate,0,Silence Resistance Growth Rate on level up. ,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139214,Charm Resistance Growth Rate,0,Charm Resistance Growth Rate on level up. ,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139215,Confusion Resistance Growth Rate,0,Confusion Resistance Growth Rate on level up.,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+139216,Fear Resistance Growth Rate,0,Fear Resistance Growth Rate on level up. ,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+
+#ÉåÉìÉWÉÉÅ[(ÉVÅ[Ét),
+#çUåÇ,
+
+141011,Hide Attack,0,Increases damage dealt from the sides and back of the enemy.</br>Skill effect varies on caster's DEX value.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141012,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141013,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141014,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141015,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141016,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141017,Hide Attack,0,Increases skill attack power.\nDecreases recast time.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141021,Back Attack,0,Increases the damage dealt from the back of the enemy.</br>Use after <stree 14101 name> to further increase damage.</br>Skill effect varies on caster's DEX value.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141022,Back Attack,0,Increases skill attack power.\nDecreases recast time.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141023,Back Attack,0,Increases skill attack power.\nDecreases recast time.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141024,Back Attack,0,Increases skill attack power.\nDecreases recast time.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141025,Back Attack,0,Increases skill attack power.\nDecreases recast time.,34,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141026,Back Attack,0,Increases skill attack power.\nDecreases recast time.,39,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141027,Back Attack,0,Increases skill attack power.\nDecreases recast time.,43,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141031,Sudden Strike,0,"Increases damage when attacking enemies that are not targeting you.</br>For Chaotic characters, attack power is further increased.</br>Skill effect varies on caster's DEX value.",23,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141032,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,23,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141033,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,23,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141034,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,28,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141035,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141036,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,34,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141037,Sudden Strike,0,Increases skill attack power.\nDecreases recast time.,41,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141041,Warzen Blow,0,"Increases damage when the target is afflicted with status effects/debuffs.</br>For Neutral characters, their attack will have the possibility to reset the status/debuffs effect time.</br>Skill effect varies on caster's DEX value.",6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141042,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141043,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141044,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141045,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141046,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,13,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+141047,Warzen Blow,0,Increases skill attack power.\nDecreases recast time.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#é„ëÃ,
+
+143011,Poison Trap,0,"Placeable trap which blows poisonous gas at those that trigger it.</br>By enhancing with additional parts, a trap can be set to trigger multiple times.",3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143012,Poison Trap,0,Increases strength of poison.,3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143013,Poison Trap,0,Increases strength of poison.\nDecreases recast time.,3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143014,Poison Trap,0,Increases strength of poison.\nDecreases recast time.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143015,Poison Trap,0,Increases strength of poison.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143016,Poison Trap,0,Increases strength of poison.\nDecreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143017,Poison Trap,0,Increases strength of poison.\nDecreases recast time.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143021,Spear Trap,0,"Placeable trap which flings spears into those that trigger it.</br>By enhancing with additional parts, a trap can be set to trigger multiple times.",1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143022,Spear Trap,0,Increases trap damage.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143023,Spear Trap,0,Increases attack power.\nDecreases recast time.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143024,Spear Trap,0,Increases attack power.\nDecreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143025,Spear Trap,0,Increases trap damage.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143026,Spear Trap,0,Increases attack power.\nDecreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143027,Spear Trap,0,Increases attack power.\nDecreases recast time.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143031,Acid Parts,0,Enhancement parts for placeable traps.</br>Can be used on unenhanced traps.</br>Causes liquid acid to be sprayed on those that trigger the trap decreasing their physical defense.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143032,Acid Parts,0,Decreases physical defense further.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143033,Acid Parts,0,Decreases physical defense further.\nDecreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143034,Acid Parts,0,Decreases physical defense further.\nDecreases recast time.,9,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143035,Acid Parts,0,Decreases physical defense further.,9,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143036,Acid Parts,0,Decreases physical defense further.\nDecreases recast time.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143037,Acid Parts,0,Decreases physical defense further.\nDecreases recast time.,19,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143041,Anti Resistance Parts,0,Enhancement parts for placeable traps.</br>Can be used on unenhanced traps.</br>Releases a sound disturbing concentration causing a decrease in magic defense.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143042,Anti Resistance Parts,0,Decreases magic defense further.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143043,Anti Resistance Parts,0,Decreases magic defense further.\nDecreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143044,Anti Resistance Parts,0,Decreases magic defense further.\nDecreases recast time.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143045,Anti Resistance Parts,0,Decreases magic defense further.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143046,Anti Resistance Parts,0,Decreases magic defense further.\nDecreases recast time.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143047,Anti Resistance Parts,0,Decreases magic defense further.\nDecreases recast time.,28,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143051,Cut Parts,0,Enhancement parts for placeable traps.</br>Can be used on unenhanced traps.</br>Applies cutting damage to those that trigger the trap.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143052,Cut Parts,0,Increases trap damage.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143053,Cut Parts,0,Increases trap damage and decreases recast time.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143054,Cut Parts,0,Increases trap damage and decreases recast time.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143055,Cut Parts,0,Increases trap damage.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143056,Cut Parts,0,Increases trap damage and decreases recast time.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143057,Cut Parts,0,Increases trap damage and decreases recast time.,29,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143061,Crush Parts,0,Enhancement parts for placeable traps.</br>Can be used on unenhanced traps.</br>Applies crushing damage to those that trigger the trap.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143062,Crush Parts,0,Increases trap attack power.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143063,Crush Parts,0,Increases trap damage and decreases recast time.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143064,Crush Parts,0,Increases trap damage and decreases recast time.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143065,Crush Parts,0,Increases trap damage.,28,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143066,Crush Parts,0,Increases trap damage and decreases recast time.,33,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143067,Crush Parts,0,Increases trap damage and decreases recast time.,40,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143071,Spike Parts,0,Enhancement parts for placeable traps.</br>Can be used on unenhanced traps.</br>Applies piercing damage to those that trigger the trap.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143072,Spike Parts,0,Increases trap attack power.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143073,Spike Parts,0,Increases trap damage and decreases recast time.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143074,Spike Parts,0,Increases trap damage and decreases recast time.,25,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143075,Spike Parts,0,Increases trap attack power.,27,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143076,Spike Parts,0,Increases trap damage and decreases recast time.,32,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143077,Spike Parts,0,Increases trap damage and decreases recast time.,39,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143081,Bomb Destroy,0,Finishing parts useable on already enhanced traps.</br>Can only be used on a trap once.</br>Causes a bomb to explode whenever the trap is triggered.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143082,Bomb Destroy,0,Increases trap damage.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143083,Bomb Destroy,0,Increases trap damage and decreases recast time.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143084,Bomb Destroy,0,Increases trap damage and decreases recast time.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143085,Bomb Destroy,0,Increases trap damage.,18,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143086,Bomb Destroy,0,Increases trap damage and decreases recast time.,23,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143087,Bomb Destroy,0,Increases trap damage and decreases recast time.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143091,Tab Destroy,0,Finishing parts usuable on already enhanced traps.</br>Can only be used on a trap once.</br>Causes an object to fall from the sky when trap is triggered causing the trigerer to faint.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143092,Tab Destroy,0,Increases power.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143093,Tab Destroy,0,Increases power.\nDecreases recast time.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143094,Tab Destroy,0,Increases power.\nDecreases recast time.,36,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143095,Tab Destroy,0,Increases power.,39,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143096,Tab Destroy,0,Increases power.\nDecreases recast time.,44,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143097,Tab Destroy,0,Increases power.\nDecreases recast time.,52,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143101,Blow Destroy,0,Finishing parts usuable on already enhanced traps.</br>Can only be used on a trap once.</br>Causes a sudden gust on trap trigger blowing the triggerer away.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143102,Blow Destroy,0,"Increases strength, decreases recast time.",30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143103,Blow Destroy,0,"Increases strength, decreases recast time.",30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143104,Blow Destroy,0,"Increases strength, decreases recast time.",35,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143105,Blow Destroy,0,"Increases strength, decreases recast time.",38,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143106,Blow Destroy,0,"Increases strength, decreases recast time.",43,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+143107,Blow Destroy,0,"Increases strength, decreases recast time.",51,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#âÒïú,
+
+145011,High Medicine,0,Enhanced the effect of <item 50100104 0> and uses it on a subject.</br>Select a subject with sub target.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+145021,Medicine Shower,0,"Sprays <item 50100104 0> around, healing party members in the effect area.",10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉTÉ|Å[Ég,
+
+146011,Steal Attack,0,"Steals items from monsters.</br>The possibility of stealing an item is increased when the target HP is low, and attack is made from the sides.</br>Chances are further improved when attacking from behind.",2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146012,Steal Attack,0,Improves chances of successful steal.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146013,Steal Attack,0,Improves chances of successful steal.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146014,Steal Attack,0,Improves chances of successful steal.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146015,Steal Attack,0,Improves chances of successful steal.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146016,Steal Attack,0,Improves chances of successful steal.,9,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146017,Steal Attack,0,Improves chances of successful steal.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146021,Hate Receive ,0,Transfers a certain percentage of hate from the target to the caster.,24,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146022,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,24,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146023,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,24,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146024,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,29,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146025,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146026,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,36,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146027,Hate Receive ,0,Increases percentage of hate transferred. Decreases recast time.,43,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146031,Hate Blame,0,Transfers a certain percentage of hate from the caster to the target.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146032,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146033,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146034,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,14,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146035,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,14,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146036,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146037,Hate Blame,0,Increases percentage of hate transferred. Decreases recast time.,24,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146041,Weakness Receive ,0,Transfers status effects from the target to the caster.,35,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146042,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7.,35,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146043,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases casting time.,35,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146044,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases casting time.,40,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146045,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7.,43,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146046,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases casting time.,48,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146047,Weakness Receive ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases casting time.,56,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146051,Weakness Blame ,0,Transfers status effects from the caster to the target.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146052,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146053,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases recast time.,26,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146054,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases recast time.,31,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146055,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7.,33,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146056,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases recast time.,38,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146057,Weakness Blame ,0,Increases number of status effects transferred by 1 at levels 4 and 7. Decreases recast time.,45,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146061,Cautionary Move,0,Hides the sound of footsteps for you and nearby party members.</br>Chaotic characters that receive fatal damage within 10 seconds after casting will survive with 1 HP.</br>This effect can occur only once.,25,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146062,Cautionary Move,0,Increases effect and effect time.,25,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146063,Cautionary Move,0,Increases effect and effect time.\nDecreases recast time.,25,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146064,Cautionary Move,0,Increases effect and effect time.\nDecreases recast time.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146065,Cautionary Move,0,Increases effect and effect time.,32,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146066,Cautionary Move,0,Increases effect and effect time.\nDecreases recast time.,37,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146067,Cautionary Move,0,Increases effect and effect time.\nDecreases recast time.,44,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146071,Stealth,0,Hides character for several seconds.</br>Effect disolves on attack.</br>It will be canceled when you use other skills if you are not Thief.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146072,Stealth,0,Increases effect time. Decreases recast time.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146073,Stealth,0,Increases effect time.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146074,Stealth,0,Increases effect time. Decreases recast time.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146075,Stealth,0,Increases effect time. Decreases recast time.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146076,Stealth,0,Increases effect time.,9,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146077,Stealth,0,Increases effect time. Decreases recast time.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146081,Decoy,0,Unleashes smoke to draw an enemies attention. Decreases recast time when your alignment is Neutral.,3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146082,Decoy,0,Increases effect time. Decreases recast time.,3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146083,Decoy,0,Increases effect time.,3,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146084,Decoy,0,Increases effect time. Decreases recast time.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146085,Decoy,0,Increases effect time.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146086,Decoy,0,Increases effect time. Decreases recast time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146087,Decoy,0,Increases effect time. Decreases recast time.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146091,Quick Movement,1,Increases movement speed.,34,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146092,Quick Movement,1,Increases effect time. Decreases recast time.,34,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146093,Quick Movement,1,Increases effect time.,34,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146094,Quick Movement,1,Increases effect time. Decreases recast time.,39,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146095,Quick Movement,1,Increases effect time.,42,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146096,Quick Movement,1,Increases effect time. Decreases recast time.,47,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+146097,Quick Movement,1,Increases effect time. Decreases recast time.,55,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÉpÉbÉVÉu,
+
+147011,OD Recovery Up,0,Increases OD recovered over time.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147012,OD Recovery Up,0,Increases OD recovered over time further.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147013,OD Recovery Up,0,Increases OD recovered over time further.,10,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147014,OD Recovery Up,0,Increases OD recovered over time further.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147015,OD Recovery Up,0,Increases OD recovered over time further.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147016,OD Recovery Up,0,Increases OD recovered over time further.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147017,OD Recovery Up,0,Increases OD recovered over time further.,28,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147021,CON Lost on Trap Decrease,0,Decreases CON Lost on Trap (except treasure box) which is planted at dungeons.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147022,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147023,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147024,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147025,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147026,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147027,CON Lost on Trap Decrease,0,Resists decreasing CON effects further.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147031,Max Hate Decrease,0,Decreases max Hate value.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147032,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147033,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,20,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147034,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,25,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147035,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,27,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147036,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,32,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147037,Max Hate Decrease,0,Decreases the max amount of Hate accumulated further.,39,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147041,Max Weight Increase (Thief),0,Increases max carry weight.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147042,Max Weight Increase (Thief),0,Increases max carry weight further.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147043,Max Weight Increase (Thief),0,Increases max carry weight further.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147044,Max Weight Increase (Thief),0,Increases max carry weight further.,27,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147045,Max Weight Increase (Thief),0,Increases max carry weight further.,29,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147046,Max Weight Increase (Thief),0,Increases max carry weight further.,33,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147047,Max Weight Increase (Thief),0,Increases max carry weight further.,40,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147051,Listen,0,Increases accuracy of Observe.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147052,Listen,0,Increases the accuracy of Observe further.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147053,Listen,0,Increases the accuracy of Observe further.,2,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147054,Listen,0,Increases the accuracy of Observe further.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147055,Listen,0,Increases the accuracy of Observe further.,6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147056,Listen,0,Increases the accuracy of Observe further.,9,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147057,Listen,0,Increases the accuracy of Observe further.,16,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147061,Negotiation,0,Increases amount of gold received when selling items to shops.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147062,Negotiation,0,Further increases amount of gold received when selling items to shops.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147063,Negotiation,0,Further increases amount of gold received when selling items to shops.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147064,Negotiation,0,Further increases amount of gold received when selling items to shops.,17,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147065,Negotiation,0,Further increases amount of gold received when selling items to shops.,18,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147066,Negotiation,0,Further increases amount of gold received when selling items to shops.,23,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147067,Negotiation,0,Further increases amount of gold received when selling items to shops.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147071,Drop Rate Up,0,Increases monster item drop rate.</br>Effect applies to all party members.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147072,Drop Rate Up,0,Increases drop rate further.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147073,Drop Rate Up,0,Increases drop rate further.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147074,Drop Rate Up,0,Increases drop rate further.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147075,Drop Rate Up,0,Increases drop rate further.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147076,Drop Rate Up,0,Increases drop rate further.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+147077,Drop Rate Up,0,Increases drop rate further.,18,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#ÇªÇÃëº,
+
+148011,Pick,0,"Consumes an <item 50100402 0>, increasing the chances of successfully disarming a treasure box trap.  </br>Failing triggers the trap.",7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148012,Pick,0,Further increases probability of disarming trap.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148013,Pick,0,Further increases probability of disarming trap.,7,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148014,Pick,0,Further increases probability of disarming trap.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148015,Pick,0,Further increases probability of disarming trap.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148016,Pick,0,Further increases probability of disarming trap.,14,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148017,Pick,0,Further increases probability of disarming trap.,21,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148021,Shake,0,"It's all or nothing, but when you succeed you'll successfully disarm the trap.</br>Failing triggers the trap.",8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148022,Shake,0,Decreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148023,Shake,0,Decreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148024,Shake,0,Decreases recast time.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148025,Shake,0,Decreases recast time.,12,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148026,Shake,0,Decreases recast time.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148027,Shake,0,Decreases recast time.,22,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148031,Careful Investigation,0,High probability of slightly increasing the chances of successfully disarming a treasure box trap.  </br>Failing triggers the trap.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148032,Careful Investigation,0,Decreases recast time.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148033,Careful Investigation,0,Decreases recast time.,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148034,Careful Investigation,0,Decreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148035,Careful Investigation,0,Decreases recast time.,5,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148036,Careful Investigation,0,Decreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148037,Careful Investigation,0,Decreases recast time.,15,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148041,Master Skill,0,Extremely high probability of slightly improving the chances of successfully disarming a treasure box trap.  </br>Failing triggers the trap.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148042,Master Skill,0,Decreases recast time.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148043,Master Skill,0,Decreases recast time.,30,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148044,Master Skill,0,Decreases recast time.,35,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148045,Master Skill,0,Decreases recast time.,38,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148046,Master Skill,0,Decreases recast time.,43,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148047,Master Skill,0,Decreases recast time.,51,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148051,Trap Release ,0,"Disarms traps set by other players (Spear Trap, Poison Trap, etc.)",6,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148061,Make Medicine,0,Creates one <item 50100104 0>.</br>Max number held is 6.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148062,Make Medicine,0,Decreases recast time.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148063,Make Medicine,0,Decreases recast time.,4,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148064,Make Medicine,0,Decreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148065,Make Medicine,0,Decreases recast time.,8,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148066,Make Medicine,0,Decreases recast time.,11,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+148067,Make Medicine,0,Decreases recast time.,18,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+#êEã∆ì¡ê´,
+
+149011,Power of Traps Set Increase Lv 1,0,Increase power of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149012,Power of Traps Set Increase Lv 2,0,Increase power of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149013,Power of Traps Set Increase Lv 3,0,Increase power of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149021,Knuckle & Dagger Attack Increase Lv 1,0,Increase Physical attack on Knuckle and Dagger.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149022,Knuckle & Dagger Attack Increase Lv 2,0,Increase Physical attack on Knuckle and Dagger.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149023,Knuckle & Dagger Attack Increase Lv 3,0,Increase Physical attack on Knuckle and Dagger.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149031,Decrease Effect Time for Bind Skills Lv 1,0,Decrease effect time for Bind skills.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149032,Decrease Effect Time for Bind Skills Lv 2,0,Decrease effect time for Bind skills.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149033,Decrease Effect Time for Bind Skills Lv 3,0,Decrease effect time for Bind skills.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149041,Trap Disarm Rate Increase Lv 1,0,Increases Trap Disarm Rate.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149042,Trap Disarm Rate Increase Lv 2,0,Increases Trap Disarm Rate.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149043,Trap Disarm Rate Increase Lv 3,0,Increases Trap Disarm Rate.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149051,OD Consumed on Step Decrease Lv 1,0,Decreases OD consumed on Step.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149052,OD Consumed on Step Decrease Lv 2,0,Decreases OD consumed on Step.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149053,OD Consumed on Step Decrease Lv 3,0,Decreases OD consumed on Step.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149061,Decrease OD Consumed on Dash Lv 1,0,Decreases OD consumed on Dash.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149062,OD Consumed on Dash Decrease Lv 2,0,Decreases OD consumed on Dash.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149063,OD Consumed on Dash Decrease Lv 3,0,Decreases OD consumed on Dash.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149071,Looted Time Increase Lv 1,0,Increases the time other players required to steal from yourself.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149072,Looted Time Increase Lv 2,0,Increases the time other players required to steal from yourself.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149073,Looted Time Increase Lv 3,0,Increases the time other players required to steal from yourself.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149081,Number of Traps Set Increase Lv 1,0,Increases number of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149082,Number of Traps Set Increase Lv 2,0,Increases number of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149083,Number of Traps Set Increase Lv 3,0,Increases number of traps set.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149091,Turning Speed Increase Lv 1,0,Increases speed of right-left move for the target.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149092,Turning Speed Increase Lv 2,0,Increases speed of right-left move for the target.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149093,Turning Speed Increase Lv 3,0,Increases speed of right-left move for the target.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149101,Thief Attack Skill Combo Damage Increase Lv 1,0,Increases the damage on Hide Attack combo to Back Attack.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149102,Thief Attack Skill Combo Damage Increase Lv 2,0,Increases the damage on Hide Attack combo to Back Attack.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149103,Thief Attack Skill Combo Damage Increase Lv 3,0,Increases the damage on Hide Attack combo to Back Attack.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149111,Thief Attack Skill Damage Increase ,0,"Increases Damage of Hide Attack, Back Attack, Sudden Strike, and Warzen Blow.",1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149201,Loot Time,0,Time required to steal from other players.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149202,Max Weight,0,Avoid penalties for equipping heavy equipment.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149203,Trap Detection Distance,0,The ability to detect traps in your area.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149204,Trap Disarming Ability,0,The ability to disarm traps on treasure chests.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149205,HP Growth Rate,0,HP Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149206,MP Growth Rate,0,MP Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149207,Poison Resistance Growth Rate,0,Poison Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149208,Paralyze Resistance Growth Rate,0,Paralyze Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149209,Petrify Resistance Growth Rate,0,Petrify Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149210,Faint Resistance Growth Rate,0,Faint Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149211,Blind Resistance Growth Rate,0,Blind Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149212,Sleep Resistance Growth Rate,0,Sleep Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149213,Silence Resistance Growth Rate,0,Silence Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149214,Charm Resistance Growth Rate,0,Charm Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149215,Confusion Resistance Growth Rate,0,Confusion Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+149216,Fear Resistance Growth Rate,0,Fear Resistance Growth Rate on level up.,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Necromancy.Server.Model
 {
@@ -50,16 +50,16 @@ namespace Necromancy.Server.Model
                 _clients.Remove(client);
             }
         }
-
+        
         /// <summary>
-        /// Returns a Client by CharacterName if it exists.
+        /// Returns a Client by Soul name if it exists.
         /// </summary>
-        public NecClient GetByCharacterName(string characterName)
+        public NecClient GetBySoulName(string soulName)
         {
             List<NecClient> clients = GetAll();
             foreach (NecClient client in clients)
             {
-                if (client.Character.Name == characterName)
+                if (client.Soul.Name == soulName)
                 {
                     return client;
                 }
@@ -94,6 +94,23 @@ namespace Necromancy.Server.Model
             foreach (NecClient client in clients)
             {
                 if (client.Account.Id == accountId)
+                {
+                    return client;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Returns a Client by AccountId if it exists.
+        /// </summary>
+        public NecClient GetByCharacterInstanceId(uint isntanceId)
+        {
+            List<NecClient> clients = GetAll();
+            foreach (NecClient client in clients)
+            {
+                if (client.Character != null && client.Character.InstanceId == isntanceId)
                 {
                     return client;
                 }

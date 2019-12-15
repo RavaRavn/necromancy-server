@@ -7,6 +7,7 @@ using Arrowgene.Services.Logging;
 using Arrowgene.Services.Networking.Tcp;
 using Arrowgene.Services.Networking.Tcp.Consumer;
 using Arrowgene.Services.Networking.Tcp.Consumer.BlockingQueueConsumption;
+using Arrowgene.Services.Networking.Tcp.Server.AsyncEvent;
 using Necromancy.Server.Logging;
 using Necromancy.Server.Model;
 using Necromancy.Server.Packet;
@@ -20,73 +21,94 @@ namespace Necromancy.Server
 
         private readonly BlockingCollection<ClientEvent>[] _queues;
         private readonly Thread[] _threads;
-        private readonly Dictionary<int, IHandler> _handlers;
-        private readonly Dictionary<ITcpSocket, NecClient> _clients;
+        private readonly Dictionary<int, IClientHandler> _clientHandlers;
+        private readonly Dictionary<int, IConnectionHandler> _connectionHandlers;
+        private readonly Dictionary<ITcpSocket, NecConnection> _connections;
         private readonly NecLogger _logger;
         private readonly object _lock;
         private readonly int _maxUnitOfOrder;
-        private string _identity;
+        private ServerType _serverType;
         private NecSetting _setting;
         private volatile bool _isRunning;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public int HandlersCount => _handlers.Count;
+        public int HandlersCount => _clientHandlers.Count;
 
-        public Action<NecClient> ClientDisconnected;
-        public Action<NecClient> ClientConnected;
+        public Action<NecConnection> ClientDisconnected;
+        public Action<NecConnection> ClientConnected;
         public Action Started;
         public Action Stopped;
 
-        public void SetIdentity(string identity)
-        {
-            if (!string.IsNullOrEmpty(identity))
-            {
-                _identity = identity;
-            }
-        }
-
-        public NecQueueConsumer(NecSetting setting)
+        public NecQueueConsumer(ServerType serverType, NecSetting setting, AsyncEventSettings socketSetting)
         {
             _setting = setting;
             _logger = LogProvider.Logger<NecLogger>(this);
-            _maxUnitOfOrder = 2; // TODO read from setting
+            _maxUnitOfOrder = socketSetting.MaxUnitOfOrder;
             _queues = new BlockingCollection<ClientEvent>[_maxUnitOfOrder];
             _threads = new Thread[_maxUnitOfOrder];
             _lock = new object();
-            _handlers = new Dictionary<int, IHandler>();
-            _clients = new Dictionary<ITcpSocket, NecClient>();
-            _identity = "";
+            _clientHandlers = new Dictionary<int, IClientHandler>();
+            _connectionHandlers = new Dictionary<int, IConnectionHandler>();
+            _connections = new Dictionary<ITcpSocket, NecConnection>();
+            _serverType = serverType;
         }
 
         public void Clear()
         {
-            _handlers.Clear();
+            _clientHandlers.Clear();
+            _connectionHandlers.Clear();
         }
 
-        public void AddHandler(IHandler handler, bool overwrite = false)
+        public void AddHandler(IClientHandler clientHandler, bool overwrite = false)
         {
             if (overwrite)
             {
-                if (_handlers.ContainsKey(handler.Id))
+                if (_clientHandlers.ContainsKey(clientHandler.Id))
                 {
-                    _handlers[handler.Id] = handler;
+                    _clientHandlers[clientHandler.Id] = clientHandler;
                 }
                 else
                 {
-                    _handlers.Add(handler.Id, handler);
+                    _clientHandlers.Add(clientHandler.Id, clientHandler);
                 }
 
                 return;
             }
 
-            if (_handlers.ContainsKey(handler.Id))
+            if (_clientHandlers.ContainsKey(clientHandler.Id))
             {
-                _logger.Error($"[{_identity}] HandlerId: {handler.Id} already exists");
+                _logger.Error($"[{_serverType}] ClientHandlerId: {clientHandler.Id} already exists");
             }
             else
             {
-                _handlers.Add(handler.Id, handler);
+                _clientHandlers.Add(clientHandler.Id, clientHandler);
+            }
+        }
+
+        public void AddHandler(IConnectionHandler connectionHandler, bool overwrite = false)
+        {
+            if (overwrite)
+            {
+                if (_connectionHandlers.ContainsKey(connectionHandler.Id))
+                {
+                    _connectionHandlers[connectionHandler.Id] = connectionHandler;
+                }
+                else
+                {
+                    _connectionHandlers.Add(connectionHandler.Id, connectionHandler);
+                }
+
+                return;
+            }
+
+            if (_connectionHandlers.ContainsKey(connectionHandler.Id))
+            {
+                _logger.Error($"[{_serverType}] ConnectionHandlerId: {connectionHandler.Id} already exists");
+            }
+            else
+            {
+                _connectionHandlers.Add(connectionHandler.Id, connectionHandler);
             }
         }
 
@@ -97,104 +119,144 @@ namespace Necromancy.Server
                 return;
             }
 
-            NecClient client;
+            NecConnection connection;
             lock (_lock)
             {
-                if (!_clients.ContainsKey(socket))
+                if (!_connections.ContainsKey(socket))
                 {
-                    _logger.Error(socket, $"[{_identity}] Client does not exist in lookup");
+                    _logger.Error(socket, $"[{_serverType}] Client does not exist in lookup");
                     return;
                 }
 
-                client = _clients[socket];
+                connection = _connections[socket];
             }
 
-            List<NecPacket> packets = client.Receive(data);
+            List<NecPacket> packets = connection.Receive(data);
             foreach (NecPacket packet in packets)
             {
-                if (_handlers.ContainsKey(packet.Id))
+                NecClient client = connection.Client;
+                if (client != null)
                 {
-                    IHandler handler = _handlers[packet.Id];
-                    if (handler.ExpectedSize != NoExpectedSize && packet.Data.Size < handler.ExpectedSize)
-                    {
-                        _logger.Error(client,
-                            $"[{_identity}] Ignoring Packed (Id:{packet.Id}) is smaller ({packet.Data.Size}) than expected ({handler.ExpectedSize})");
-                        continue;
-                    }
-
-                    _logger.LogIncomingPacket(client, packet, _identity);
-                    packet.Data.SetPositionStart();
-                    try
-                    {
-                        handler.Handle(client, packet);
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Exception(client, ex);
-                    }
+                    HandleReceived_Client(client, packet);
                 }
                 else
                 {
-                    _logger.LogUnknownIncomingPacket(client, packet, _identity);
+                    HandleReceived_Connection(connection, packet);
                 }
+            }
+        }
+
+        private void HandleReceived_Connection(NecConnection connection, NecPacket packet)
+        {
+            if (!_connectionHandlers.ContainsKey(packet.Id))
+            {
+                _logger.LogUnknownIncomingPacket(connection, packet, _serverType);
+                return;
+            }
+
+            IConnectionHandler connectionHandler = _connectionHandlers[packet.Id];
+            if (connectionHandler.ExpectedSize != NoExpectedSize && packet.Data.Size < connectionHandler.ExpectedSize)
+            {
+                _logger.Error(connection,
+                    $"[{_serverType}] Ignoring Packed (Id:{packet.Id}) is smaller ({packet.Data.Size}) than expected ({connectionHandler.ExpectedSize})");
+                return;
+            }
+
+            _logger.LogIncomingPacket(connection, packet, _serverType);
+            packet.Data.SetPositionStart();
+            try
+            {
+                connectionHandler.Handle(connection, packet);
+            }
+            catch (Exception ex)
+            {
+                _logger.Exception(connection, ex);
+            }
+        }
+
+        private void HandleReceived_Client(NecClient client, NecPacket packet)
+        {
+            if (!_clientHandlers.ContainsKey(packet.Id))
+            {
+                _logger.LogUnknownIncomingPacket(client, packet, _serverType);
+                return;
+            }
+
+            IClientHandler clientHandler = _clientHandlers[packet.Id];
+            if (clientHandler.ExpectedSize != NoExpectedSize && packet.Data.Size < clientHandler.ExpectedSize)
+            {
+                _logger.Error(client,
+                    $"[{_serverType}] Ignoring Packed (Id:{packet.Id}) is smaller ({packet.Data.Size}) than expected ({clientHandler.ExpectedSize})");
+                return;
+            }
+
+            _logger.LogIncomingPacket(client, packet, _serverType);
+            packet.Data.SetPositionStart();
+            try
+            {
+                clientHandler.Handle(client, packet);
+            }
+            catch (Exception ex)
+            {
+                _logger.Exception(client, ex);
             }
         }
 
         private void HandleDisconnected(ITcpSocket socket)
         {
-            NecClient client;
+            NecConnection connection;
             lock (_lock)
             {
-                if (!_clients.ContainsKey(socket))
+                if (!_connections.ContainsKey(socket))
                 {
-                    _logger.Error(socket, $"[{_identity}] Disconnected client does not exist in lookup");
+                    _logger.Error(socket, $"[{_serverType}] Disconnected client does not exist in lookup");
                     return;
                 }
 
-                client = _clients[socket];
-                _clients.Remove(socket);
-                _logger.Debug($"[{_identity}] Clients Count: {_clients.Count}");
+                connection = _connections[socket];
+                _connections.Remove(socket);
+                _logger.Debug($"[{_serverType}] Clients Count: {_connections.Count}");
             }
 
-            Action<NecClient> onClientDisconnected = ClientDisconnected;
+            Action<NecConnection> onClientDisconnected = ClientDisconnected;
             if (onClientDisconnected != null)
             {
                 try
                 {
-                    onClientDisconnected.Invoke(client);
+                    onClientDisconnected.Invoke(connection);
                 }
                 catch (Exception ex)
                 {
-                    _logger.Exception(client, ex);
+                    _logger.Exception(connection, ex);
                 }
             }
 
-            _logger.Info(client, $"[{_identity}] Client disconnected");
+            _logger.Info(connection, $"[{_serverType}] Client disconnected");
         }
 
         private void HandleConnected(ITcpSocket socket)
         {
-            NecClient client = new NecClient(socket, new PacketFactory(_setting));
+            NecConnection connection = new NecConnection(socket, new PacketFactory(_setting), _serverType);
             lock (_lock)
             {
-                _clients.Add(socket, client);
-                _logger.Debug($"[{_identity}] Clients Count: {_clients.Count}");
+                _connections.Add(socket, connection);
+                _logger.Debug($"[{_serverType}] Clients Count: {_connections.Count}");
             }
 
-            Action<NecClient> onClientConnected = ClientConnected;
+            Action<NecConnection> onClientConnected = ClientConnected;
             if (onClientConnected != null)
             {
                 try
                 {
-                    onClientConnected.Invoke(client);
+                    onClientConnected.Invoke(connection);
                 }
                 catch (Exception ex)
                 {
-                    _logger.Exception(client, ex);
+                    _logger.Exception(connection, ex);
                 }
             }
 
-            _logger.Info(client, $"[{_identity}] Client connected");
+            _logger.Info(connection, $"[{_serverType}] Client connected");
         }
 
         private void Consume(int unitOfOrder)
@@ -228,6 +290,12 @@ namespace Necromancy.Server
 
         void IConsumer.OnStart()
         {
+            if (_isRunning)
+            {
+                _logger.Error($" [{_serverType}] Consumer already running.");
+                return;
+            }
+
             _cancellationTokenSource = new CancellationTokenSource();
             _isRunning = true;
             for (int i = 0; i < _maxUnitOfOrder; i++)
@@ -235,8 +303,8 @@ namespace Necromancy.Server
                 int uuo = i;
                 _queues[i] = new BlockingCollection<ClientEvent>();
                 _threads[i] = new Thread(() => Consume(uuo));
-                _threads[i].Name = $"[{_identity}] Consumer: {i}";
-                _logger.Info($"[{_identity}] Starting Consumer: {i}");
+                _threads[i].Name = $"[{_serverType}] Consumer: {i}";
+                _logger.Info($"[{_serverType}] Starting Consumer: {i}");
                 _threads[i].Start();
             }
         }
@@ -267,14 +335,20 @@ namespace Necromancy.Server
 
         void IConsumer.OnStop()
         {
+            if (!_isRunning)
+            {
+                _logger.Error($" [{_serverType}] Consumer already stopped.");
+                return;
+            }
+
             _isRunning = false;
             _cancellationTokenSource.Cancel();
             for (int i = 0; i < _maxUnitOfOrder; i++)
             {
                 Thread consumerThread = _threads[i];
-                _logger.Info($"[{_identity}] Shutting Consumer: {i} down...");
+                _logger.Info($"[{_serverType}] Shutting Consumer: {i} down...");
                 Service.JoinThread(consumerThread, 10000, _logger);
-                _logger.Info($"[{_identity}] Consumer: {i} ended.");
+                _logger.Info($"[{_serverType}] Consumer: {i} ended.");
                 _threads[i] = null;
             }
         }

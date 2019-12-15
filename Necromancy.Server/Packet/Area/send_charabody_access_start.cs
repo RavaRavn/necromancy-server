@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_charabody_access_start : Handler
+    public class send_charabody_access_start : ClientHandler
     {
         public send_charabody_access_start(NecServer server) : base(server)
         {
@@ -19,7 +19,7 @@ namespace Necromancy.Server.Packet.Area
 
             res.WriteInt32(2);
 
-            Router.Send(client, (ushort) AreaPacketId.recv_charabody_access_start_r, res);            
+            Router.Send(client, (ushort) AreaPacketId.recv_charabody_access_start_r, res, ServerType.Area);            
         }
     }
 }

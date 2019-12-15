@@ -2,10 +2,11 @@ using Arrowgene.Services.Buffers;
 using Necromancy.Server.Common;
 using Necromancy.Server.Model;
 using Necromancy.Server.Packet.Id;
+using System.Collections.Generic;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_skill_request_info : Handler
+    public class send_skill_request_info : ClientHandler
     {
         public send_skill_request_info(NecServer server) : base(server)
         {
@@ -15,10 +16,17 @@ namespace Necromancy.Server.Packet.Area
 
         public override void Handle(NecClient client, NecPacket packet)
         {
-            IBuffer res = BufferProvider.Provide();
-            res.WriteInt32(0);
-            // No Response OP code
-            // Router.Send(client, (ushort) 0x0000, res);            
+            List <SkillTreeItem> skillTreeItems = Database.SelectSkillTreeItemsByCharId(client.Character.Id);
+            for (int i = 0; i < skillTreeItems.Count; i++)
+            {
+                IBuffer res = BufferProvider.Provide();
+                res.WriteInt32(skillTreeItems[i].SkillId);      // base skill id
+                res.WriteInt32(skillTreeItems[i].Level);          // skill level
+                res.WriteByte(0);
+                res.WriteByte(0);
+                // No Response OP code
+                Router.Send(client, (ushort)AreaPacketId.recv_skill_tree_notify, res, ServerType.Area);
+            }
         }
     }
 }

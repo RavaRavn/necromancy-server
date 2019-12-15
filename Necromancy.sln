@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Necromancy.Server", "Necromancy.Server\Necromancy.Server.csproj", "{A62CB11C-6CEE-49D4-9296-10AB10413EBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Necromancy.Cli", "Necromancy.Cli\Necromancy.Cli.csproj", "{435A4CE2-B4EC-4112-8F6A-5FC0F54000AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{A62CB11C-6CEE-49D4-9296-10AB10413EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A62CB11C-6CEE-49D4-9296-10AB10413EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A62CB11C-6CEE-49D4-9296-10AB10413EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{435A4CE2-B4EC-4112-8F6A-5FC0F54000AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{435A4CE2-B4EC-4112-8F6A-5FC0F54000AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{435A4CE2-B4EC-4112-8F6A-5FC0F54000AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{435A4CE2-B4EC-4112-8F6A-5FC0F54000AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

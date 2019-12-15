@@ -5,7 +5,7 @@ using Necromancy.Server.Packet.Id;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_quest_get_soul_mission_quest_works : Handler
+    public class send_quest_get_soul_mission_quest_works : ClientHandler
     {
         public send_quest_get_soul_mission_quest_works(NecServer server) : base(server)
         {
@@ -73,7 +73,7 @@ namespace Necromancy.Server.Packet.Area
             res.WriteInt32(1);
             res.WriteFloat(1);
 
-            Router.Send(client, (ushort)AreaPacketId.recv_quest_get_soul_mission_quest_works_r, res);
+            Router.Send(client, (ushort)AreaPacketId.recv_quest_get_soul_mission_quest_works_r, res, ServerType.Area);
 
             //SendQuestDisplay(client);
         }
@@ -83,7 +83,7 @@ namespace Necromancy.Server.Packet.Area
             IBuffer res2 = BufferProvider.Provide();
             res2.WriteInt32(0);
 
-            Router.Send(client, (ushort)AreaPacketId.recv_quest_display_r, res2);
+            Router.Send(client, (ushort)AreaPacketId.recv_quest_display_r, res2, ServerType.Area);
 
 
         }

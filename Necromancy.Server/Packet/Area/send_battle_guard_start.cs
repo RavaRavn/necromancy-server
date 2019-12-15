@@ -6,7 +6,7 @@ using System;
 
 namespace Necromancy.Server.Packet.Area
 {
-    public class send_battle_guard_start : Handler
+    public class send_battle_guard_start : ClientHandler
     {
         public send_battle_guard_start(NecServer server) : base(server)
         {
@@ -22,7 +22,7 @@ namespace Necromancy.Server.Packet.Area
 
             res.WriteInt32(client.Character.Id);//Character ID
 
-            Router.Send(client.Map, (ushort)AreaPacketId.recv_dbg_battle_guard_start_notify, res, client);
+            Router.Send(client.Map, (ushort)AreaPacketId.recv_dbg_battle_guard_start_notify, res, ServerType.Area, client);
 
         }
     }
