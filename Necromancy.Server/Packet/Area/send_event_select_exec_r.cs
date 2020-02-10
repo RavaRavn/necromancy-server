@@ -48,6 +48,7 @@ namespace Necromancy.Server.Packet.Area
                         {
                          { x => x == 10000704,   () => ChangeMap(client, npcSpawn.NpcId) }, //set to Manaphes in slums for testing.
                          { x => x == 10000012 ,  () => defaultEvent(client, npcSpawn.NpcId) },
+                         { x => x == 10000019 ,  () => Abdul(client, npcSpawn)  },
                          { x => x == 74000022 ,  () => RecoverySpring(client, npcSpawn.NpcId) },
                          { x => x == 74013071 ,  () => ChangeMap(client, npcSpawn.NpcId) },
                          { x => x == 74013161 ,  () => ChangeMap(client, npcSpawn.NpcId) },
@@ -419,6 +420,58 @@ namespace Necromancy.Server.Packet.Area
                 SendEventEnd(client);
             }
         }
+        private void Abdul(NecClient Client, NpcSpawn npcSpawn)
+         {
+            if (Client.Character.eventSelectExecCode == 0)
+            {
+                IBuffer res = BufferProvider.Provide();
+                IBuffer res5 = BufferProvider.Provide();
+                res.WriteInt32(0x1E); // cmp to 0x1E = 30
 
+                int numEntries = 0x1E;
+                for (int i = 0; i < numEntries; i++)
+                {
+                    res.WriteInt32(0);
+                }
+
+                res.WriteInt32(1); // cmp to 0x1 = 1 
+
+                res.WriteInt32(0);
+
+                res.WriteInt32(0xA);  // cmp to 0xA = 10
+
+                int numEntries2 = 0xA;
+                for (int i = 0; i < numEntries2; i++)
+                {
+                    res.WriteInt32(0);
+                }
+                Router.Send(Client, (ushort)AreaPacketId.recv_event_start, res5, ServerType.Area);
+                Router.Send(Client, (ushort)AreaPacketId.recv_event_quest_report_list_begin2, res, ServerType.Area);
+
+            }
+            else if (Client.Character.eventSelectExecCode == 1)
+            {
+                {
+                    IBuffer res6 = BufferProvider.Provide();
+                    IBuffer res36 = BufferProvider.Provide();
+                    res6.WriteInt32(0); // 0 = normal 1 = cinematic
+                    res6.WriteByte(0);
+
+
+                    Router.Send(Client, (ushort)AreaPacketId.recv_event_start, res6, ServerType.Area);
+                    Router.Send(Client, (ushort)AreaPacketId.recv_event_quest_report_list_begin, res36, ServerType.Area);
+
+                }
+            }
+
+
+            else if (Client.Character.eventSelectExecCode == 2)
+            {
+                IBuffer res12 = BufferProvider.Provide();
+                res12.WriteCString("Whatever, Walk Away because I'm not useful yet."); // Length 0xC01
+                Router.Send(Client, (ushort)AreaPacketId.recv_event_system_message, res12, ServerType.Area); // Show System Message on Middle of the Screen
+            }
+            RecvEventEnd(Client); // End the Event
+        }   
     }
 }

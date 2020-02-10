@@ -241,6 +241,9 @@ namespace Necromancy.Server.Model
                 }
             }
         }
+
+        public bool helperTextAbdul { get; internal set; }
+
         public uint AddStateBit(uint stateBit)
         {
             uint newState = 0;
