@@ -242,3 +242,19 @@ CREATE TABLE IF NOT EXISTS `ItemsInSlot`(
    ItemsType INT,
    PRIMARY KEY(QuestID)
 );
+
+ CREATE TABLE IF NOT EXISTS QuestRequest(
+   TypeId INT,
+   SlotsId INT,
+   unknown BIGINT(50),
+   Lowest INT,
+   BuyNow INT,
+   Name VARCHAR NOT NULL,
+   unknown1 BINARY,
+   Comment VARCHAR,
+   Bid SMALLINT,
+   Timer INT,
+   BidAmount INT,
+   Statuses INT,
+   PRIMARY KEY(TypeId)
+);

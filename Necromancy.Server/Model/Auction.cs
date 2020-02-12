@@ -16,7 +16,7 @@ namespace Necromancy.Server.Model
         public byte unknown1 { get; set; }
         public string Comment { get; set; }
         public Int16 Bid { get; set; }
-        public int Time { get; set; }
+        public int Timer { get; set; }
         public int BidAmount { get; set; } // Bid Price Or Bid Amount
         public int Statuses { get; set; }
 

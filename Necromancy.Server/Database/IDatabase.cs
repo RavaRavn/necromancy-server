@@ -86,5 +86,11 @@ namespace Necromancy.Server.Database
         Quest SelectQuestById(int questId);
         bool UpdateQuest(Quest quest);
         bool DeleteQuest(int questId);
+
+        // Items
+        bool InsertAuction(Auction Auction);
+        Items SelectAuctionById(int AuctionId);
+        bool UpdateAuction(Auction Auction);
+        bool DeleteAuction(int AuctionId);
     }
 }
