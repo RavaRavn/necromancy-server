@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `ItemsInSlot`(
    PRIMARY KEY(QuestID)
 );
 
- CREATE TABLE IF NOT EXISTS QuestRequest(
+ CREATE TABLE IF NOT EXISTS Auction(
    TypeId INT,
    SlotsId INT,
    unknown BIGINT(50),
